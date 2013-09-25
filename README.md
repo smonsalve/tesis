@@ -1,12 +1,12 @@
-tesis
+#tesis
 =====
 
-#Descripción:
+##Descripción:
 
 Projecto de grado de Sergio Monsalve. 
 Todos los derechos reservados.
 
-#Contenido: 
+###Contenido: 
 
 1. Documentacion: Papers, libros
 2. Codigo: ejemplos
