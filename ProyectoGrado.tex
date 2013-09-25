@@ -1,0 +1,217 @@
+\documentclass[twoside,letterpaper,12pt]{report}
+\usepackage[spanish,backgroundcolor=green,textsize=small]{todonotes}
+%\usepackage[margin=2cm]{geometry}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{plain}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+
+\usepackage{parskip}
+\setlength{\parindent}{15pt}
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,          % color of internal links (change box color with linkbordercolor)
+  citecolor=black,        % color of links to bibliography
+  filecolor=black,      % color of file links
+  urlcolor=black           % color of external links
+}
+
+
+\title{
+Proyecto de Grado\\[0.5cm]
+Instalación, Implementación y uso de las librerías boost y su aplicación en recorrido de grafos para la supercomputadora Apolo}
+\vspace{2cm}
+
+\author{
+	Autor:\\[0.3cm]
+	Sergio Andrés Monsalve Castañeda\\
+	Código: 200410061010\\
+	smonsal3@eafit.edu.co\\
+	semonsalve@gmail.com\\[0.7cm]
+	Asesor: \\[0.3cm]
+	Juan Guillermo Lalinde Pulido\\
+	jlalinde@eafit.edu.co\\
+	2619500 ext 9588\\[1cm]
+}
+
+\date{
+	\today \\[0.5cm]
+	\includegraphics[width=0.25\textwidth]{aux/logo_eafit}
+}
+
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\begin{abstract}
+ aca iria el abstract
+\end{abstract}
+
+\newpage
+
+\renewcommand{\abstractname}{Agradecimientos}
+\begin{abstract}
+Pineda, Silva, Mateo, Alejandro, Jaime, Juan Guillermo
+\end{abstract}
+
+\newpage
+
+\chapter{Introduccion}
+
+This document seeks to explain the activities undertaken as part of the research group of Professor Marisol Koslowski during the Summer Undergraduate Research Fellowship, at the same time, serve as a background document for those who continue working on related projects pf the research group.
+
+  % \begin{center}
+  %   \includegraphics[width=0.7\textwidth]{SURF}
+  % \end{center}
+
+\section{Project Goals}
+	
+	In this project Jaime Perez and Sergio Monsalve were assined to work with professor Marisol Koslowski research group. In the begining of SURF we had a series of nanohub trainings, and later we were introduced to the rest of the team, as the meetigns went by we got some Activities Asigned to us. (Jaime Perez and Me) in the begging we work on the same activities, and later on the summer we distribute the task between us. 
+
+	\subsection {Project Context and Background}
+
+	In the first days a contextualizations were necessary, research topic related papers were given to us. 
+
+	\subsection {Voronoi structure generator}
+
+	This was one of the first task that we worked on, we stopped in the 4th week after realized that this was no longer necessary.	
+
+	\subsection {Input Code Improvement}
+
+	This improvement had to standardize the way the variables were entered to code without the need to recompile. We seemed unnecessary for two people work on this task so that only Jaime followed working on it.
+
+
+	\subsection {Verification Cases}
+
+	Due to the number of people who manipulate and constantly change the code and the number of outputs that the code provides, is necessary to have verification system that allows ensure that the code still works after being modified.
+
+	\subsection {Code Optimizations}
+
+	Different approaches were taken into account, since the modification of the numerical methods to rewrite expressions that allowed optimize operations, thereby obtaining better performance.
+
+	\begin{itemize}
+		\item Algorithmic Optimizations
+		\item Numerical Methods Improvement
+		\item Expression Rewriting
+	\end{itemize}
+
+	
+	\subsection {Diferent Numerical Methods implementations}
+
+	Of all the possible optimizations, the largest effect is usually the modification of the algorithm, in this case the use of a numerical method with less number of iterations and significantly greater accuracy increases quality and reduces code complexity, leading to an model closer to the analytical solution with less processing resource consumption.
+
+	This task was not completed, i had unexpected behavior on the code and could not make the code to converge. 
+
+	\subsection {Plot Convergency and Results from virtual evolv function}
+
+	This depended on the previous task therefore was not completed.
+	
+	\subsection {Matrix Operations Optimizations}
+
+	Left for future work for time reasons.
+	
+\chapter{Marco de Referencia}
+\label{ChapRef}
+
+\todo[inline,caption={TODO}]{
+  \begin{itemize}
+  	\item Grafos
+    \item Super Computadores
+    \item tipos de Problemas
+  \end{itemize}
+}
+
+\section{Results}
+
+	Although computing capacity continues to grow, every year there are bigger and faster machines, the execution speed is increasing but the effect of writing efficient code will always be significant.\\
+
+	After analyzing the code implemented we can conclude that with good programming practices, and small modifications in details in how the code is writen, a great difference at the time of execution may be achievable, most when such changes are added together.\\
+
+	The clarity and simplicity in the code when translating the equivalent mathematical model can make the code be inefficient, but excessive expression level optimization would make the code difficult understanding and modification. Therefore, a balance between the two is necessary for a higher quality code.\\
+
+	Use the syntactic sugar that the programming languages offer to us can help to reduce the loss of clarity while maintaining a balance between readability and efficiency. \cite{boost} \cite{Karniadakis} \cite{wwwboost}
+
+
+Introducción 
+
+metaprogramación
+metaprogramación en C++
+
+\section{MPI}
+
+\section{Boost Graph Library}
+
+  (BGL) - http://www.boost.org/
+	build mpi
+	build GraphParallel
+	build serilization
+
+Boost and Eclipse
+	configuración
+	
+\subsection{Parallel Boost Graph Library (Parallel BGL) }
+
+\section{Virtualización de un cluster}[imagen de apolo]
+
+\subsection{Instalacion de Boost en Apolo}
+
+
+\subsection{makefile}
+
+Cómo ejecutar el script de installación 
+
+que se debe modificar en el makefile\cite{Wall2000}
+
+instalar rpm de boost:
+Cuando se formatea o reinicia máquina
+Cuando se instala normalmente.
+
+\section{ejemplo}
+
+ejemplo Programa Corriendo en Apolo
+
+\chapter{Glosario}
+\label{chapGlosario}
+
+\begin{description}
+	\item[HPC:] (High Performance Computing) Computación de alto desempeño.
+\end{description}
+
+\newpage
+
+% \bibliography{Tesis,refs} hay que organizar refs
+\bibliography{Tesis}
+
+\bibliographystyle{plain}	
+
+
+%ALEXANDRESCU, A. (2001). Modern C++ design: generic programming and design patterns applied. Boston, MA, Addison-Wesley.
+%Boost.org (2000) Table of Contents: Boost Graph Library - 1.52.0. [online] Available at: http://www.boost.
+%org/doc/libs/1_52_0/libs/graph/doc/table_of_contents.html [Accessed: 5 Feb 2013].
+%Boost.org (2004) Parallel BGL Parallel Boost Graph Library - 1.53.0. [online] Available at: http://www.boost.
+%org/doc/libs/1_53_0/libs/graph_parallel/doc/html/index.html [Accessed: 5 Feb 2013].
+%CZARNECKI, K., & EISENECKER, U. (2000). Generative programming: methods, tools, and applications. Boston, Addison Wesley.
+%STROUSTRUP, B. (1997). The C++ programming language. Reading, Mass, Addison-Wesley.
+
+\newpage
+
+\appendix
+\section{Appendix 1: Code Repository}
+
+	Para una copia del codigo utilizado dirigirse a:
+	\url{https://github.com/smonsalve/tesis.git}
+
+\appendix
+\section{Appendix 2: Future Work}
+
+	Recomendations for future work.e points given in the last weeks of work)  
+
+
+\end{document}
+
