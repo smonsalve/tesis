@@ -51,19 +51,13 @@ Instalación, Implementación y Uso de las librerías boost y su aplicación en 
 
 \begin{abstract}
 
-El crecimiento de la capacidad computacional abre nuevos campos de aplicación. La teoría de grafos es una de las herramientas más importantes que ofrece las ciencias de la computación para la resolución de diferentes tipos de problemas. Aunque los algoritmos para grafos tienen una complejidad alta en general, existen algoritmos paralelos. En este proyecto se pretende instalar en Apolo, el supercomputador de EAFIT, la infraestructura básica para que un programador, utilizando las librerías BOOST para C++, pueda desarrollar rápidamente aplicaciones que aprovechen su capacidad computacional. 
-
 El crecimiento de la capacidad computacional abre nuevos campos de aplicación. 
 
 La teoría de grafos es una de las herramientas más importantes que ofrece las ciencias de la computación para la resolución de diferentes tipos de problemas. 
 
 Aunque los algoritmos para grafos tienen una complejidad alta en general, existen algoritmos paralelos. En este proyecto se pretende instalar en Apolo, el supercomputador de EAFIT, la infraestructura básica para que un programador, utilizando las librerías BOOST para C++, pueda desarrollar rápidamente aplicaciones que aprovechen su capacidad computacional. 
 
-
-Comunidad Científica
-Comunidad académica
-Estudiantes de Ingeniería de Sistemas
-Estudiantes de Ingenieria Matematica
+De esta manera se pretende beneficiar a la Comunidad Científica, Comunidad académica, Estudiantes de Ingeniería de Sistemas, Estudiantes de Ingenieria Matematica y en General a quien necesite realizar computo de grafos en paralelo utilizando boost, o requiera de una introducción a este tema.
 
 
 \end{abstract}
@@ -72,7 +66,9 @@ Estudiantes de Ingenieria Matematica
 
 \renewcommand{\abstractname}{Agradecimientos}
 \begin{abstract}
-Juan Guillermo Lalinde, Juan David Pineda, John Jairo Silva, Alejandro Gómez, Mateo Gómez, Jaime Pérez, John Mario Gutiérrez.
+
+En primer lugar quiero agradecer a Juan Guillermo Lalinde quien desde el inicio de me carrera me inspiro y apoyo en grandes retos acádemicos, sin su ayuda hoy sería un cocinero. A Juan David Pineda por toda su paciencia para explicarme el funcionamiento de Apolo. Por ultimo agradezco a John Jairo Silva, Alejandro Gómez, Mateo Gómez, Jaime Pérez y John Mario Gutiérrez por sus multiples colaboraciones en diversos temas. 
+
 \end{abstract}
 
 \newpage
@@ -82,31 +78,31 @@ Juan Guillermo Lalinde, Juan David Pineda, John Jairo Silva, Alejandro Gómez, M
 \section{Objetivos}
 
 \begin{itemize}
-	\item Construir un manual para la instalación de las librerías de boost
-	\item Generar Documentación sobre el manejo de las librerías de boost
-	\item Crear códigos de ejemplo para la ejecución de las librerías de boost	
+	\item Construir un manual para la instalación de las librerías de boost.
+	\item Generar Documentación sobre el manejo de las librerías de boost.
+	\item Crear códigos de ejemplo para la ejecución de las librerías de boost.
 \end{itemize}
 
 
 
 \section{Alcance y productos}
 
-Descripción de las Librerías de Boost
-Librerías de Utilización de Grafos Instaladas en Apolo
-Manual de Instalacion de librerias Para Boost
-Ejemplo en código documentado y manual de como hacer un programa utilizando boost para grafos.
-Introducción al manejo de Grafos con boost (representación conceptual)
+\begin{itemize}
+	\item Descripción de las Librerías de Boost.
+	\item Librerías de Utilización de Grafos Instaladas en Apolo.
+	\item Manual de Instalacion de librerias Para Boost.
+	\item Ejemplo en código documentado y manual de como hacer un programa utilizando boost para grafos.
+	\item Introducción al manejo de Grafos con boost (representación conceptual).
+
+\end{itemize}
+
 
 \section{Usabilidad}
 
 Utilizar los GPS de los taxis para hacer análisis de la malla vial de la ciudad. 
 Movilización y Rutas óptimas para el recorrido de Bomberos, Ambulancias, Policía para la atención de emergencias y desastres
 
-
-Movilidad
-Seguridad
-Educación 
-Tecnología
+Movilidad, Seguridad, Educación, Tecnología.
 
 \chapter{Marco de Referencia}
 \label{ChapRef}
@@ -127,9 +123,11 @@ The Parallel Boost Graph Library is an extension to the Boost Graph Library (BGL
 
 \chapter{Instalación}
 
+\input{virtualizacion}
 
 
-\section{Virtualización de un cluster}[imagen de apolo]
+imagen de apolo.
+Definir los nodos.
 
 \section{MPI}
 
@@ -151,10 +149,7 @@ Boost and Eclipse
 \subsubsection{Parallel}
 \subsubsection{MPI}
 
-
-
 \subsection{Instalacion de Boost en Apolo}
-
 
 \subsection{makefile}
 
@@ -167,10 +162,14 @@ Cuando se formatea o reinicia máquina
 Cuando se instala normalmente.
 
 
-
 \chapter{Implementación}
 
 Ejemplo Programa Corriendo en Apolo
+
+Programa Normal. 
+
+Ejecturar
+
 
 \chapter{Resultados}
 
@@ -178,7 +177,7 @@ Ejemplo Programa Corriendo en Apolo
 \section{10 Nodos}
 \section{100 Nodos}
 
-
+\section{Trabajo Futuro}
 
 \chapter{Glosario}
 \label{chapGlosario}
@@ -216,7 +215,7 @@ Para una copia del código utilizado dirigirse a: \url{https://github.com/smonsa
 
 OVA de la maquina virtual con Rocks instalado y dos nodos.
 
-Input data para Grafo con X Nodos. y Y vertices.
+Input data para Grafo (X Vertices y Y Aristas).
 
 Makefile de Instalación.
 
