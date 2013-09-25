@@ -1,6 +1,6 @@
 \documentclass[twoside,letterpaper,12pt]{report}
 \usepackage[spanish,backgroundcolor=green,textsize=small]{todonotes}
-%\usepackage[margin=2cm]{geometry}
+\usepackage[margin=2cm]{geometry}
 \usepackage[utf8x]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{plain}
@@ -20,11 +20,10 @@
   urlcolor=black           % color of external links
 }
 
-
 \title{
 Proyecto de Grado\\[0.5cm]
-Instalación, Implementación y uso de las librerías boost y su aplicación en recorrido de grafos para la supercomputadora Apolo}
-\vspace{2cm}
+Instalación, Implementación y Uso de las librerías boost y su aplicación en recorrido de grafos para la supercomputadora Apolo}
+\vspace{1cm}
 
 \author{
 	Autor:\\[0.3cm]
@@ -35,7 +34,7 @@ Instalación, Implementación y uso de las librerías boost y su aplicación en 
 	Asesor: \\[0.3cm]
 	Juan Guillermo Lalinde Pulido\\
 	jlalinde@eafit.edu.co\\
-	2619500 ext 9588\\[1cm]
+	2619500 ext 9588%\\[1cm]
 }
 
 \date{
@@ -49,105 +48,96 @@ Instalación, Implementación y uso de las librerías boost y su aplicación en 
 
 \tableofcontents
 
+
 \begin{abstract}
- aca iria el abstract
+
+El crecimiento de la capacidad computacional abre nuevos campos de aplicación. La teoría de grafos es una de las herramientas más importantes que ofrece las ciencias de la computación para la resolución de diferentes tipos de problemas. Aunque los algoritmos para grafos tienen una complejidad alta en general, existen algoritmos paralelos. En este proyecto se pretende instalar en Apolo, el supercomputador de EAFIT, la infraestructura básica para que un programador, utilizando las librerías BOOST para C++, pueda desarrollar rápidamente aplicaciones que aprovechen su capacidad computacional. 
+
+El crecimiento de la capacidad computacional abre nuevos campos de aplicación. 
+
+La teoría de grafos es una de las herramientas más importantes que ofrece las ciencias de la computación para la resolución de diferentes tipos de problemas. 
+
+Aunque los algoritmos para grafos tienen una complejidad alta en general, existen algoritmos paralelos. En este proyecto se pretende instalar en Apolo, el supercomputador de EAFIT, la infraestructura básica para que un programador, utilizando las librerías BOOST para C++, pueda desarrollar rápidamente aplicaciones que aprovechen su capacidad computacional. 
+
+
+Comunidad Científica
+Comunidad académica
+Estudiantes de Ingeniería de Sistemas
+Estudiantes de Ingenieria Matematica
+
+
 \end{abstract}
 
 \newpage
 
 \renewcommand{\abstractname}{Agradecimientos}
 \begin{abstract}
-Pineda, Silva, Mateo, Alejandro, Jaime, Juan Guillermo
+Juan Guillermo Lalinde, Juan David Pineda, John Jairo Silva, Alejandro Gómez, Mateo Gómez, Jaime Pérez, John Mario Gutiérrez.
 \end{abstract}
 
 \newpage
 
-\chapter{Introduccion}
+\chapter{Introducción}
 
-This document seeks to explain the activities undertaken as part of the research group of Professor Marisol Koslowski during the Summer Undergraduate Research Fellowship, at the same time, serve as a background document for those who continue working on related projects pf the research group.
+\section{Objetivos}
 
-  % \begin{center}
-  %   \includegraphics[width=0.7\textwidth]{SURF}
-  % \end{center}
-
-\section{Project Goals}
-	
-	In this project Jaime Perez and Sergio Monsalve were assined to work with professor Marisol Koslowski research group. In the begining of SURF we had a series of nanohub trainings, and later we were introduced to the rest of the team, as the meetigns went by we got some Activities Asigned to us. (Jaime Perez and Me) in the begging we work on the same activities, and later on the summer we distribute the task between us. 
-
-	\subsection {Project Context and Background}
-
-	In the first days a contextualizations were necessary, research topic related papers were given to us. 
-
-	\subsection {Voronoi structure generator}
-
-	This was one of the first task that we worked on, we stopped in the 4th week after realized that this was no longer necessary.	
-
-	\subsection {Input Code Improvement}
-
-	This improvement had to standardize the way the variables were entered to code without the need to recompile. We seemed unnecessary for two people work on this task so that only Jaime followed working on it.
+\begin{itemize}
+	\item Construir un manual para la instalación de las librerías de boost
+	\item Generar Documentación sobre el manejo de las librerías de boost
+	\item Crear códigos de ejemplo para la ejecución de las librerías de boost	
+\end{itemize}
 
 
-	\subsection {Verification Cases}
 
-	Due to the number of people who manipulate and constantly change the code and the number of outputs that the code provides, is necessary to have verification system that allows ensure that the code still works after being modified.
+\section{Alcance y productos}
 
-	\subsection {Code Optimizations}
+Descripción de las Librerías de Boost
+Librerías de Utilización de Grafos Instaladas en Apolo
+Manual de Instalacion de librerias Para Boost
+Ejemplo en código documentado y manual de como hacer un programa utilizando boost para grafos.
+Introducción al manejo de Grafos con boost (representación conceptual)
 
-	Different approaches were taken into account, since the modification of the numerical methods to rewrite expressions that allowed optimize operations, thereby obtaining better performance.
+\section{Usabilidad}
 
-	\begin{itemize}
-		\item Algorithmic Optimizations
-		\item Numerical Methods Improvement
-		\item Expression Rewriting
-	\end{itemize}
+Utilizar los GPS de los taxis para hacer análisis de la malla vial de la ciudad. 
+Movilización y Rutas óptimas para el recorrido de Bomberos, Ambulancias, Policía para la atención de emergencias y desastres
 
-	
-	\subsection {Diferent Numerical Methods implementations}
 
-	Of all the possible optimizations, the largest effect is usually the modification of the algorithm, in this case the use of a numerical method with less number of iterations and significantly greater accuracy increases quality and reduces code complexity, leading to an model closer to the analytical solution with less processing resource consumption.
+Movilidad
+Seguridad
+Educación 
+Tecnología
 
-	This task was not completed, i had unexpected behavior on the code and could not make the code to converge. 
-
-	\subsection {Plot Convergency and Results from virtual evolv function}
-
-	This depended on the previous task therefore was not completed.
-	
-	\subsection {Matrix Operations Optimizations}
-
-	Left for future work for time reasons.
-	
 \chapter{Marco de Referencia}
 \label{ChapRef}
 
-\todo[inline,caption={TODO}]{
-  \begin{itemize}
-  	\item Grafos
-    \item Super Computadores
-    \item tipos de Problemas
-  \end{itemize}
-}
+\section{Apolo} Super Computadores
+\section{Grafos}
+\section{MPI}
+\section{Boost}
 
-\section{Results}
-
-	Although computing capacity continues to grow, every year there are bigger and faster machines, the execution speed is increasing but the effect of writing efficient code will always be significant.\\
-
-	After analyzing the code implemented we can conclude that with good programming practices, and small modifications in details in how the code is writen, a great difference at the time of execution may be achievable, most when such changes are added together.\\
-
-	The clarity and simplicity in the code when translating the equivalent mathematical model can make the code be inefficient, but excessive expression level optimization would make the code difficult understanding and modification. Therefore, a balance between the two is necessary for a higher quality code.\\
-
-	Use the syntactic sugar that the programming languages offer to us can help to reduce the loss of clarity while maintaining a balance between readability and efficiency. \cite{boost} \cite{Karniadakis} \cite{wwwboost}
+\begin{quotation}
+The Parallel Boost Graph Library is an extension to the Boost Graph Library (BGL) for parallel and distributed computing. It offers distributed graphs and graph algorithms to exploit coarse-grained parallelism along with parallel algorithms that exploit fine-grained parallelism, while retaining the same interfaces as the (sequential) BGL. Code written using the sequential BGL should be easy to parallelize with the parallel BGL. Visitors new to the Parallel BGL should read our architectural overview.\cite{wwwboost} 
+\end{quotation} 
 
 
-Introducción 
+\section{Metaprogramación}
+\subsection{Metaprogramación en C++}
 
-metaprogramación
-metaprogramación en C++
+
+\chapter{Instalación}
+
+
+
+\section{Virtualización de un cluster}[imagen de apolo]
 
 \section{MPI}
 
+\subsection{OpenMPI}
+\subsection{Mpich}
+
 \section{Boost Graph Library}
 
-  (BGL) - http://www.boost.org/
 	build mpi
 	build GraphParallel
 	build serilization
@@ -156,8 +146,12 @@ Boost and Eclipse
 	configuración
 	
 \subsection{Parallel Boost Graph Library (Parallel BGL) }
+\subsubsection{Seriallization}
+\subsubsection{Regex}
+\subsubsection{Parallel}
+\subsubsection{MPI}
 
-\section{Virtualización de un cluster}[imagen de apolo]
+
 
 \subsection{Instalacion de Boost en Apolo}
 
@@ -172,46 +166,59 @@ instalar rpm de boost:
 Cuando se formatea o reinicia máquina
 Cuando se instala normalmente.
 
-\section{ejemplo}
 
-ejemplo Programa Corriendo en Apolo
+
+\chapter{Implementación}
+
+Ejemplo Programa Corriendo en Apolo
+
+\chapter{Resultados}
+
+\section{Sin paralelizar}
+\section{10 Nodos}
+\section{100 Nodos}
+
+
 
 \chapter{Glosario}
 \label{chapGlosario}
 
 \begin{description}
 	\item[HPC:] (High Performance Computing) Computación de alto desempeño.
+	\item[Data Center:]
 \end{description}
 
 \newpage
 
-% \bibliography{Tesis,refs} hay que organizar refs
 \bibliography{Tesis}
 
 \bibliographystyle{plain}	
+aca
+\cite{czarnecki2000generative}
+\cite{wwwboost}
+\cite{stroustrup2013c++}
+\cite{andrei2001modern}
+\cite{Wall2000}
+\cite{Boost}
+\cite{Karniadakis}
+\cite{Kernighan1988}
 
 
-%ALEXANDRESCU, A. (2001). Modern C++ design: generic programming and design patterns applied. Boston, MA, Addison-Wesley.
-%Boost.org (2000) Table of Contents: Boost Graph Library - 1.52.0. [online] Available at: http://www.boost.
-%org/doc/libs/1_52_0/libs/graph/doc/table_of_contents.html [Accessed: 5 Feb 2013].
-%Boost.org (2004) Parallel BGL Parallel Boost Graph Library - 1.53.0. [online] Available at: http://www.boost.
-%org/doc/libs/1_53_0/libs/graph_parallel/doc/html/index.html [Accessed: 5 Feb 2013].
-%CZARNECKI, K., & EISENECKER, U. (2000). Generative programming: methods, tools, and applications. Boston, Addison Wesley.
-%STROUSTRUP, B. (1997). The C++ programming language. Reading, Mass, Addison-Wesley.
+\todo[inline,caption={TODO}]{
+}
 
 \newpage
 
 \appendix
-\section{Appendix 1: Code Repository}
+\chapter{Repositorio del código}
 
-	Para una copia del codigo utilizado dirigirse a:
-	\url{https://github.com/smonsalve/tesis.git}
+Para una copia del código utilizado dirigirse a: \url{https://github.com/smonsalve/tesis.git}
 
-\appendix
-\section{Appendix 2: Future Work}
+OVA de la maquina virtual con Rocks instalado y dos nodos.
 
-	Recomendations for future work.e points given in the last weeks of work)  
+Input data para Grafo con X Nodos. y Y vertices.
 
+Makefile de Instalación.
 
 \end{document}
 
