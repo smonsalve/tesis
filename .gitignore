@@ -36,5 +36,6 @@ log/*.log
 *.vrb
 *.xdy
 *.tdo
+*.pdf
 
 
