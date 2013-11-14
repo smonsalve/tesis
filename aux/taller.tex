@@ -1,0 +1,119 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+\title{Laboratorio de Computación de Alto Rendimiento}
+\author{
+        Juan David Pineda Cárdenas \\
+        juan.david.pineda@gmail.com\\
+        Universidad de Medellín\\
+        Medellín, Colombia
+}
+\date{\today}
+
+
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Este laboratorio introduce los conceptos fundamentales de la computación de alto rendimiento por medio de la utilización de máquinas virtuales con un sistema operativo distribuido.
+\end{abstract}
+
+\section{Introducción}
+Los pasos a seguir dentro de este laboratorio lo pondrán en contexto con respecto a los distintos elementos que se deben tener en cuenta al inciarse en la computación de alto rendimiento. Se usará inicialmente una máquina virtual previamente creada por el tutor y a continuación se prepará el entorno ideal para emular un cluster de computadoras. Una vez instalado y configurado correctamente dicho entorno distribuido, se procederá a bajar algunos ejemplos de computación paralela, usando OpenMP y MPI. Queda en manos del estudiante analizar el código.
+
+\section{Procedimiento}
+A continuación se de describen todos los pasos para instalar, configurar y poner en marcha un ambiente virtualizado para realizar pruebas de código paralelo.
+
+\subsection{Configuración del Nodo Maestro}
+\begin{enumerate}
+\item Asegúrese de que su computadora tiene habilitada en la BIOS la capacidad de virtualización en el procesador.
+\item Descargue e instale la última versión de Virtual Box de www.virtualbox.org\footnote{En el momento de escribir este documento se puede descargar del siguiente enlace: https://www.virtualbox.org/wiki/Downloads}.
+\item Descargue adicionalmente el ``Extension Pack'', el cual podrá encontrar en la misma página de descargas de virtualbox.
+\item Una vez instalado VirtualBox en su computador, proceda a instalar el Extensión Pack: En VirtualBox acceda al menú Archivo $\rightarrow$ Preferencias $\rightarrow$ Sección Extensiones $\rightarrow$ Proceda a instalar el ``Extension Pack''. Luego vaya a la sección Red $\rightarrow$ Adicione una red Sólo Anfitrión\footnote{Esta debe ser la primera interfaz de red de Sólo Anfitrión que se crea, si ya está creada por favor no cree otra adicional.}. Haga click en aceptar para finalizar la operación.
+\item Descargue la máquina virtual del nodo Master de la dirección: http://goo.gl/8eTJOr
+\item En VirtualBox, importe desde el Menú $\rightarrow$ Importar Appliance. Deje la configuración por defecto y \textbf{no} reinicialice la dirección MAC.
+\item Señale la máquina virtual llamada ``Master'' y vaya a la configuración y revise la siguiente configuración en esta:
+  \begin{itemize}
+  \item En la sección Sistema, pestaña Procesador, debe tener dos procesadores y habilitado PAE/NX.
+  \item En la sección Red, pestaña Adaptador 1, deberá estar configurado como NAT. En la pestaña Adaptador 2 deberá estar en Adaptador Sólo--Anfitrión y el nombre deberá ser \texttt{vboxnet0}\footnote{Tenga en cuenta que este adaptador se llama \texttt{vboxnet0} en Linux, en Windows tendrá otro nombre, lo más importante es que sea la primera interfaz de red de Sólo Anfitrión, ya que sino dará lugar al problema de reasignación de interfaces de red dentro del nodo Master, en otras palabras, asignará las interfaces eth2 y eth3 en vez de asignar eth0 y eth1 a la NAT y a la Sólo Anfitrión respectivamente.}.
+  \item Acepte todos los cambios.
+  \end{itemize}
+\item Señale la máquina Master e iníciela.
+\item Una vez iniciada la máquina virtual del Master proceda a crear una nueva máquina virtual como Nodo Trabajador a partir de los siguientes pasos:
+  \begin{itemize}
+  \item Haga click en Crear Nueva Máquina.
+  \item El nombre será \textit{compute-0-0}.
+  \item El tipo será Linux.
+  \item La versión será Red Hat de 64 bits.
+  \item Click en siguiente.
+  \item Asigne 1024 Megabytes de Memoria RAM\footnote{La cantidad de memoria RAM asignada será proporcional a la que tenga el sistema en el cual están las máquinas virtuales. Igual con el disco duro y los procesadores, sin embargo, para efectos de ver la paralelización en memoria compartida se recomienda tener 2 procesadores por máquina}.
+  \item Cree el disco duro con 30 gigas de espacio, recuerde que esto se asignará dinámicamente. El tipo de disco duró será VDI y dinámicamente asignado.
+  \end{itemize}
+\item Una vez creado el nodo trabajador se procede a configurarlo a partir de los siguientes pasos:
+  \begin{itemize}
+  \item Señalar la máquina \textit{compute-0-0} y dar click en Configurar.
+  \item En la pestaña Sistema, asegúrese de que tenga la cantidad de memoria RAM correcta, deshabilite el \textit{floppy disk}, habilite la red como dipositivo de \textit{booteo} y además súbalo como primer dispositivo, sólo deberá quedar la tarjeta de red como primera opción y como segunda el disco duro de la máquina virtual, de esta manera nos aseguramos que esta máquina virtual pueda instalarse automáticamente de manera desatendida, por esta razón el clúster es escalable. En la pestaña Procesador asegúrese de que hay dos procesadores y está habilitado PAE/NX.
+  \item En la sección Red deberá configurar sólo la primera interfaz de red y deberá estar configurada como Sólo--Anfitrión y deberá tener \texttt{vboxnet0}.
+  \item Acepte los cambios.
+  \end{itemize}
+\item Repita los pasos para crear otro nodo si lo considera necesario para crear el \textit{compute-0-1}, siempre y cuando la computadora que usted tiene soporte una tercera máquina virtual ejecutandose al tiempo que el Nodo Master y el \textit{compute-0-0}
+\item Ingrese en el Nodo Master como usuario \texttt{root} y la contraseña es \texttt{apolito123!}
+\item Abra una consola
+\item Ingrese el comando \texttt{insert-ethers}
+\item Escoja \texttt{Compute}. Aparecerá una interfaz de consola mostrándole los nodos agregados en la medida que se les vaya asignando IP por medio de DHCP y una imagen de Linux para instalar con PXE.
+\item Encienda de uno en uno los Nodos trabajadores que haya creado, empezando por el \textit{compute-0-0} y así sucesivamente. Observará que aparece en la interfaz \texttt{insert-ethers} la dirección MAC del Nodo Trabajador, se le asignará el nombre compute-0-0 y si aparece un símbolo de asterísco es porque recibió exitosamente la imagen para la instalación de Linux.
+\item Una vez de que los nodos se termine de instalar automáticamente salga de la interfaz de \texttt{insert-ethers} en el Master con la tecla F8.
+\item Ingrese al directorio especificado con el siguiente comando: \texttt{cd /export/apps/installers}
+\item Descargue el instalador del comando \texttt{htop} con la siguiente instrucción: \texttt{wget http://goo.gl/TDWExw}
+\item Instale \texttt{htop} en el nodo Master con la siguiente instrucción: \texttt{rpm -ivh htop*.rpm}
+\item Ahora instale masivamente \texttt{htop} en el resto del clúster con el siguiente comando: \texttt{rocks run host ``rpm -ivh /share/apps/installers/htop*.rpm''}
+\item El cluster está completo.
+\end{enumerate}
+
+\subsection{Configuración de los Nodos Esclavos}
+\begin{enumerate}
+\item Una vez que se tiene el nodo Master funcionando y por lo menos un nodo trabajador como el \textit{compute-0-0} se procede a realizar los siguientes pasos de configuración:
+\begin{itemize}
+\item Adicione un usuario sin privilegios con los siguientes comandos\footnote{En adelante el usuario de ejemplo será jdpinedac, pero usted podrá asignar el nombre de usuario que desee}:
+  \begin{itemize}
+  \item \textbf{\texttt{adduser jdpinedac}} Para crear un usuario sin privilegios
+  \item \textbf{\texttt{passwd jdpinedac}} Para cambiar la contraseña del usuario
+  \item \textbf{\texttt{rocks sync users}} Para sincronizar el usuario creado en todo el cluster, este usuarió estará creado tanto en el nodo master como en los nodos trabajadores.
+  \end{itemize}
+\item \textit{su - jdpinedac} Para que el usuario \texttt{root} se convierta en el usuario sin privilegios. Se le harán algunas preguntas de contraseñas, déjelas vacías presionando la tecla \textit{enter} varias veces.
+\end{itemize}
+\end{enumerate}
+
+\subsection{Compilación y Ejecución del Código de Ejemplo}
+\begin{enumerate}
+\item Una vez esté en el directorio \textit{home} del usuario sin privilegios proceda a bajar los ejemplos de la página http://goo.gl/RcJg58 
+\item Descomprima el archivo con el comando \texttt{tar xvf ejemplos.tar.gz}
+\item Deberán aparecer dos carpetas: \texttt{EjemploMPI} y \texttt{EjemploOpenMP}, verifique el contenido de ambas carpetas.
+\item Para evaluar el ejemplo de la Carpeta \texttt{EjemploOpenMP} realice los siguientes pasos:
+  \begin{itemize}
+  \item \textbf{\texttt{cd EjemploOpenMP}} Para ingresar a la carpeta.
+  \item \textbf{\texttt{nano jacobi2d\_main\_omp.f90}} para editar el archivo principal. Se recomienda ver un tutorial del editor de texto \texttt{nano}.
+  \item \textbf{\texttt{make}} para compilar el código
+  \item \textbf{\texttt{./jacobi2d.exe}} para ejecutar el programa.
+  \item Haga los análisis correspondientes, cambie el código de manera conveniente y saque conclusiones con respecto al rendimiento con la memoria compartida. Tenga en cuenta que esto se estaría ejecutando en el nodo Master. Apóyese del comando \texttt{htop} para llegar a las conclusiones correctas.
+  \end{itemize}
+\item Para evaluar los ejemplos de la Carpeta \texttt{EjemploMPI} realice los siguiente pasos:
+  \begin{itemize}
+  \item \textbf{\texttt{cd EjemploMPI}} Para ingresar a la carpeta. Encontrará tres ejemplos, evalúelos en el siguiente orden: \texttt{holamundo}, \texttt{arreglos} y \texttt{pi}.
+  \item Recuerde que tiene que crear el machine file. Se puede crear manualmente escribiendo el nombre de los distintos nodos trabajadores en un archivo que se puede llamar \texttt{machines.txt}, teniendo en cuenta que debe ir el nombre de un nodo trabajador por cada línea del archivo. Otra forma de hacerlo, automáticamente pero que requiere ser verificada es: \texttt{rocks run host hostname > machines.txt}
+  \item Una vez creado el archivo de máquinas entonces debe proceder a compilar el código del ejemplo que haya escogido con el siguiente comando: \texttt{mpicc -o ejemploescogido ejemploescogido.c} donde ejemploescogido es el nombre del ejemplo.
+  \item Una vez compilado el código, deberá ejecutarlo en paralelo con el siguiente comando \texttt{mpirun -n NroNucleos -machinefile machines.txt ./ejemploescogido} donde NroNucleos es la sumatoria de los núcleos que se tienen en los nodos trabajadores.
+  \item Analice lo que pasa con cada uno de los ejemplos, recuerde ver el consumo de los recursos con el comando \texttt{htop} ingresando a cada uno de los nodos trabajadores ingresando con el compando \texttt{ssh nombrenodotrabajador}, por ejemplo \texttt{ssh compute-0-0}.
+  \item Saque conclusiones y documente que comportamientos observó y bajo que circunstancias en cada uno de los ejemplos. Dé una explicación de cada uno de los comportamientos encontrados. Recuerde variar el número de núcleos, nodos o hilos usados en las simulaciones, teniendo en cuenta el tipo de estrategia usada y el algoritmo implementado.
+  \end{itemize}
+\end{enumerate}
+
+\subsection{Recursos}
+\begin{itemize}
+\item Software Carpentry -- The Shell -- http://goo.gl/p6aV50
+\item Parallel Computing Introduction -- LLNL -- http://goo.gl/jocy5
+\item juan.david.pineda@gmail.com
+\end{itemize}
+\end{document}

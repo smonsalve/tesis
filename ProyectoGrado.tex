@@ -22,15 +22,14 @@
 
 \title{
 Proyecto de Grado\\[0.5cm]
-Instalación, Implementación y Uso de las librerías boost y su aplicación en recorrido de grafos para la supercomputadora Apolo}
+Instalación, Implementación y Uso de las librerías Boost y su aplicación en recorrido de grafos para la supercomputadora Apolo}
 \vspace{1cm}
 
 \author{
 	Autor:\\[0.3cm]
 	Sergio Andrés Monsalve Castañeda\\
 	Código: 200410061010\\
-	smonsal3@eafit.edu.co\\
-	semonsalve@gmail.com\\[0.7cm]
+	smonsal3@eafit.edu.co\\[0.7cm]
 	Asesor: \\[0.3cm]
 	Juan Guillermo Lalinde Pulido\\
 	jlalinde@eafit.edu.co\\
@@ -51,13 +50,13 @@ Instalación, Implementación y Uso de las librerías boost y su aplicación en 
 
 \begin{abstract}
 
-El crecimiento de la capacidad computacional abre nuevos campos de aplicación. 
+Existe una gran cantidad de problemas que debido a su complejidad no es posible resolver, sea porque requieren mucho tiempo o la complejidad de estos esta tal que tardarían tanto tiempo que su estudio no es posible. Adicionalmente cada vez surgen nuevos problemas, aun mas complejos. Con el crecimiento de la capacidad computacional ya es posible abordar algunos de ellos que antes hubieran tomado mucho tiempo o simplemente no hubiese sido posible resolver. 
 
-La teoría de grafos es una de las herramientas más importantes que ofrece las ciencias de la computación para la resolución de diferentes tipos de problemas. 
+Dentro de este amplia gama de problemas, existen unos particulares que pueden ser modelados mediante la teoría de grafos, una gran herramienta que ofrece las ciencias de la computación.
 
 Aunque los algoritmos para grafos tienen una complejidad alta en general, existen algoritmos paralelos. En este proyecto se pretende instalar en Apolo, el supercomputador de EAFIT, la infraestructura básica para que un programador, utilizando las librerías BOOST para C++, pueda desarrollar rápidamente aplicaciones que aprovechen su capacidad computacional. 
 
-De esta manera se pretende beneficiar a la Comunidad Científica, Comunidad académica, Estudiantes de Ingeniería de Sistemas, Estudiantes de Ingenieria Matematica y en General a quien necesite realizar computo de grafos en paralelo utilizando boost, o requiera de una introducción a este tema.
+De esta manera se pretende beneficiar a la Comunidad Científica, Comunidad académica, Estudiantes de Ingeniería de Sistemas, Estudiantes de Ingenieria Matematica y en General a quien necesite realizar computo de grafos en paralelo utilizando Boost, o requiera de una introducción a este tema.
 
 
 \end{abstract}
@@ -67,7 +66,7 @@ De esta manera se pretende beneficiar a la Comunidad Científica, Comunidad acad
 \renewcommand{\abstractname}{Agradecimientos}
 \begin{abstract}
 
-En primer lugar quiero agradecer a Juan Guillermo Lalinde quien desde el inicio de me carrera me inspiro y apoyo en grandes retos acádemicos, sin su ayuda hoy sería un cocinero. A Juan David Pineda por toda su paciencia para explicarme el funcionamiento de Apolo. Por ultimo agradezco a John Jairo Silva, Alejandro Gómez, Mateo Gómez, Jaime Pérez y John Mario Gutiérrez por sus multiples colaboraciones en diversos temas. 
+En primer lugar quiero agradecer a Juan Guillermo Lalinde quien desde el inicio de me carrera me inspiro y apoyo en grandes retos acádemicos, sin su ayuda hoy sería un cocinero. A Juan David Pineda por toda su paciencia para explicarme el funcionamiento de Apolo. Por ultimo agradezco a John Jairo Silva, Alejandro Gómez, Mateo Gómez, Jaime Pérez y John Mario Gutiérrez por sus multiples colaboraciones. 
 
 \end{abstract}
 
@@ -78,9 +77,9 @@ En primer lugar quiero agradecer a Juan Guillermo Lalinde quien desde el inicio 
 \section{Objetivos}
 
 \begin{itemize}
-	\item Construir un manual para la instalación de las librerías de boost.
-	\item Generar Documentación sobre el manejo de las librerías de boost.
-	\item Crear códigos de ejemplo para la ejecución de las librerías de boost.
+	\item Construir un manual para la instalación de las librerías de Boost.
+	\item Generar Documentación sobre el manejo de las librerías de Boost.
+	\item Crear códigos de ejemplo para la ejecución de las librerías de Boost.
 \end{itemize}
 
 
@@ -91,8 +90,8 @@ En primer lugar quiero agradecer a Juan Guillermo Lalinde quien desde el inicio 
 	\item Descripción de las Librerías de Boost.
 	\item Librerías de Utilización de Grafos Instaladas en Apolo.
 	\item Manual de Instalacion de librerias Para Boost.
-	\item Ejemplo en código documentado y manual de como hacer un programa utilizando boost para grafos.
-	\item Introducción al manejo de Grafos con boost (representación conceptual).
+	\item Ejemplo en código documentado y manual de como hacer un programa utilizando Boost para grafos.
+	\item Introducción al manejo de Grafos con Boost (representación conceptual).
 
 \end{itemize}
 
@@ -107,26 +106,34 @@ Movilidad, Seguridad, Educación, Tecnología.
 \chapter{Marco de Referencia}
 \label{ChapRef}
 
-\section{Apolo} Super Computadores
-\section{Grafos}
+\section{Computación Paralela}
+
+\cite{PCI}
+\cite{SC}
+
+\subsection{Apolo}
+
+\section{C++}
+\subsection{Metaprogramación en C++}
+
 \section{MPI}
+
+
 \section{Boost}
 
 \begin{quotation}
-The Parallel Boost Graph Library is an extension to the Boost Graph Library (BGL) for parallel and distributed computing. It offers distributed graphs and graph algorithms to exploit coarse-grained parallelism along with parallel algorithms that exploit fine-grained parallelism, while retaining the same interfaces as the (sequential) BGL. Code written using the sequential BGL should be easy to parallelize with the parallel BGL. Visitors new to the Parallel BGL should read our architectural overview.\cite{wwwboost} 
+The Parallel Boost Graph Library is an extension to the Boost Graph Library (BGL) for parallel and distributed computing. It offers distributed graphs and graph algorithms to exploit coarse-grained parallelism along with parallel algorithms that exploit fine-grained parallelism, while retaining the same interfaces as the (sequential) BGL. Code written using the sequential BGL should be easy to parallelize with the parallel BGL. Visitors new to the Parallel BGL should read our architectural overview.\cite{wwwBoost} 
 \end{quotation} 
 
-
-\section{Metaprogramación}
-\subsection{Metaprogramación en C++}
+\section{Grafos}
+\subsection{PBGL}
 
 
 \chapter{Instalación}
 
-\input{virtualizacion}
+\input{Caps/virtualizacion}
 
-
-imagen de apolo.
+Imagen de apolo.
 Definir los nodos.
 
 \section{MPI}
@@ -157,7 +164,7 @@ Cómo ejecutar el script de installación
 
 que se debe modificar en el makefile\cite{Wall2000}
 
-instalar rpm de boost:
+instalar rpm de Boost:
 Cuando se formatea o reinicia máquina
 Cuando se instala normalmente.
 
@@ -177,7 +184,7 @@ Ejecturar
 \section{10 Nodos}
 \section{100 Nodos}
 
-\section{Trabajo Futuro}
+\chapter{Trabajo Futuro}
 
 \chapter{Glosario}
 \label{chapGlosario}
@@ -194,7 +201,7 @@ Ejecturar
 \bibliographystyle{plain}	
 aca
 \cite{czarnecki2000generative}
-\cite{wwwboost}
+\cite{wwwBoost}
 \cite{stroustrup2013c++}
 \cite{andrei2001modern}
 \cite{Wall2000}

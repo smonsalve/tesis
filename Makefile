@@ -1,4 +1,4 @@
-ALL: ProyectoGrado.pdf clean open
+ALL: ProyectoGrado.pdf clean open 
 
 %.pdf: %.tex Makefile
 	pdflatex --enable-write18 $< && bibtex ProyectoGrado.aux && pdflatex $< && pdflatex $< 
