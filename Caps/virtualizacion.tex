@@ -1,5 +1,8 @@
 \section{Virtualización de un cluster}
 
+		\todo[inline,caption={TODO}]{Aca va la descripción de porque es importante virtualizar, para que se necesita y que es lo que se esta virtualizando.}
+
+
 % http://galois.eafit.edu.co/vms/devenv/rocks-6.1/
 
 La siguiente es la descripción de los pasos a seguir para la creación de un ambiente de pruebas paralelo virtualizado que simula el cluster de Apolo.\footnote{Estas instrucciones fueron probadas en un ambiente de Linux Fedora 18.}
@@ -8,19 +11,30 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 \subsection{Configuración del Nodo Maestro}
 \begin{enumerate}
 
-\item Descargue e Instale VirtualBox Manager. \footnote{https://www.virtualbox.org/wiki/Downloads}
+\item Descargue e Instale VirtualBox Manager. \footnote{\url{https://www.virtualbox.org/wiki/Downloads}}
 
-\item Descargar la imagen del Master.\footnote{http://goo.gl/8eTJOr}
+\includegraphics[width=0.5\textwidth]{aux/vb_instalado}
 
-\item Descargue el ``Extension Pack''. \footnote{https://www.virtualbox.org/wiki/Downloads}
+\item Descargar la imagen del Master.\footnote{\url{http://goo.gl/8eTJOr}}
+
+\item Descargue el ``Extension Pack''. \footnote{\url{https://www.virtualbox.org/wiki/Downloads}}
 
 \item Una vez instalado VirtualBox en su computador, proceda a instalar el Extensión Pack: 
 
-\begin{itemize}
+	\includegraphics[width=0.5\textwidth]{aux/sinextensionpack}
 	
+\begin{itemize}
+
+
 	\item En VirtualBox acceda al menú Archivo $\rightarrow$ Preferencias $\rightarrow$ Sección Extensiones $\rightarrow$ Proceda a instalar el ``Extension Pack''. 
+	
+	\includegraphics[width=0.5\textwidth]{aux/conextensionpack}
 
 	\item Vaya a la sección Red $\rightarrow$ Adicione una red Sólo Anfitrión. Esta debe ser la primera interfaz de red de Sólo Anfitrión que se crea, si ya está creada por favor no cree otra adicional.
+
+
+	\includegraphics[width=0.5\textwidth]{aux/hostonly}
+	
 
 	\item Haga click en aceptar para finalizar la operación.
 
@@ -28,15 +42,37 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 
 \item En VirtualBox, importe desde el Menú $\rightarrow$ Importar Appliance. Deje la configuración por defecto y \textbf{no} reinicialice la dirección MAC.
 
+
+\includegraphics[width=0.5\textwidth]{aux/importappliance}
+
+
+\includegraphics[width=0.5\textwidth]{aux/applianceops1}
+
+\includegraphics[width=0.5\textwidth]{aux/applianceops2}
+
+
 \item Señale la máquina virtual llamada ``Master'' y vaya a la configuración y revise la siguiente configuración en esta:
 
 \begin{itemize}
 
 	\item En la sección Sistema, pestaña Procesador, debe tener dos procesadores y habilitado PAE/NX.
 
+	
+	
+	\includegraphics[width=0.5\textwidth]{aux/procesadores}
+	
+
 	\item En la sección Red, pestaña Adaptador 1, deberá estar configurado como NAT. 
 
+
+	\includegraphics[width=0.5\textwidth]{aux/rednat}
+	
+
 	\item En la pestaña Adaptador 2 deberá estar en Adaptador Sólo--Anfitrión y el nombre deberá ser \texttt{vboxnet0}\footnote{Tenga en cuenta que este adaptador se llama \texttt{vboxnet0} en Linux, en Windows tendrá otro nombre, lo más importante es que sea la primera interfaz de red de Sólo Anfitrión, ya que sino dará lugar al problema de reasignación de interfaces de red dentro del nodo Master, en otras palabras, asignará las interfaces eth2 y eth3 en vez de asignar eth0 y eth1 a la NAT y a la Sólo Anfitrión respectivamente.}.
+
+
+	\includegraphics[width=0.5\textwidth]{aux/redhost}
+	
 
 	\item Acepte todos los cambios.
 
@@ -55,11 +91,27 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 
 	\item La versión será Red Hat de 64 bits.
 
+	\includegraphics[width=0.5\textwidth]{aux/opcnodo1}
+
 	\item Click en siguiente.
 
 	\item Asigne 1024 Megabytes de Memoria RAM\footnote{La cantidad de memoria RAM asignada será proporcional a la que tenga el sistema en el cual están las máquinas virtuales. Igual con el disco duro y los procesadores, sin embargo, para efectos de ver la paralelización en memoria compartida se recomienda tener 2 procesadores por máquina}.
 
 	\item Cree el disco duro con 30 gigas de espacio, recuerde que esto se asignará dinámicamente. El tipo de disco duró será VDI y dinámicamente asignado.
+
+
+
+	\includegraphics[width=0.5\textwidth]{aux/nodohd}
+
+	
+	\includegraphics[width=0.5\textwidth]{aux/nododvi}
+
+
+	\includegraphics[width=0.5\textwidth]{aux/hddinamico}
+
+
+	\includegraphics[width=0.5\textwidth]{aux/nodohdsize}
+	
 
 \end{itemize}
 
@@ -74,9 +126,20 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 
 	\item habilite la red como dipositivo de \textit{booteo} y además súbalo como primer dispositivo, sólo deberá quedar la tarjeta de red como primera opción y como segunda el disco duro de la máquina virtual, de esta manera nos aseguramos que esta máquina virtual pueda instalarse automáticamente de manera desatendida, por esta razón el clúster es escalable. 
 
+	\includegraphics[width=0.5\textwidth]{aux/nodoopsboot}
+
+
 	\item En la pestaña Procesador asegúrese de que hay dos procesadores y está habilitado PAE/NX.
 
+
+	\includegraphics[width=0.5\textwidth]{aux/nodoprocesadores}
+	
+
 	\item En la sección Red deberá configurar sólo la primera interfaz de red y deberá estar configurada como Sólo--Anfitrión y deberá tener \texttt{vboxnet0}.
+
+
+	\includegraphics[width=0.5\textwidth]{aux/nodored}
+	
 
 	\item Acepte los cambios.
 \end{itemize}
@@ -86,7 +149,7 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 
 \item Ingrese en el Nodo Master como usuario \texttt{root} y la contraseña es \texttt{apolito123!}
 
-\item Abra una consola
+\item Abra una consola (La combinación de teclas Alt+F2 permite ejecutar una aplicación escribiendo su nombre)
 
 \item Ingrese el comando \texttt{insert-ethers}
 
