@@ -92,8 +92,8 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 	\item El tipo será Linux.
 
 	\item La versión será Red Hat de 64 bits.
+
 	
-	\includegraphics[width=0.5\textwidth]{aux/nodoopsboot}
 
 	\item Click en siguiente.
 
@@ -128,9 +128,20 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 
 	\item habilite la red como dipositivo de \textit{booteo} y además súbalo como primer dispositivo, sólo deberá quedar la tarjeta de red como primera opción y como segunda el disco duro de la máquina virtual, de esta manera nos aseguramos que esta máquina virtual pueda instalarse automáticamente de manera desatendida, por esta razón el clúster es escalable. 
 
+	\includegraphics[width=0.5\textwidth]{aux/nodoopsboot}
+
+
 	\item En la pestaña Procesador asegúrese de que hay dos procesadores y está habilitado PAE/NX.
 
+
+	\includegraphics[width=0.5\textwidth]{aux/nodoprocesadores}
+	
+
 	\item En la sección Red deberá configurar sólo la primera interfaz de red y deberá estar configurada como Sólo--Anfitrión y deberá tener \texttt{vboxnet0}.
+
+
+	\includegraphics[width=0.5\textwidth]{aux/nodored}
+	
 
 	\item Acepte los cambios.
 \end{itemize}
