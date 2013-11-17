@@ -1,9 +1,23 @@
 \section{Virtualización de un cluster}
 
-		\todo[inline,caption={TODO}]{Aca va la descripción de porque es importante virtualizar, para que se necesita y que es lo que se esta virtualizando.}
+\todo[inline,caption={TODO}]{
+
+Aca va la descripción de porque es importante virtualizar, para que se necesita y que es lo que se esta virtualizando. 
+
+\begin{itemize}
+	\item Procedimientos de Virtualización
+	\item Instalación de Software en el Cluster
+	\item Ejecución y Sistema de Colas
+
+\end{itemize}
+}
 
 
 % http://galois.eafit.edu.co/vms/devenv/rocks-6.1/
+
+En este capitulo se presenta el procedimientos para la virtualización 
+
+
 
 La siguiente es la descripción de los pasos a seguir para la creación de un ambiente de pruebas paralelo virtualizado que simula el cluster de Apolo.\footnote{Estas instrucciones fueron probadas en un ambiente de Linux Fedora 18.}
 
@@ -151,11 +165,28 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 
 \item Abra una consola (La combinación de teclas Alt+F2 permite ejecutar una aplicación escribiendo su nombre)
 
+
+\includegraphics[width=0.5\textwidth]{aux/terminal}
+
+
 \item Ingrese el comando \texttt{insert-ethers}
+
+
+\includegraphics[width=0.5\textwidth]{aux/insert}
+
 
 \item Escoja \texttt{Compute}. Aparecerá una interfaz de consola mostrándole los nodos agregados en la medida que se les vaya asignando IP por medio de DHCP y una imagen de Linux para instalar con PXE.
 
+
+\includegraphics[width=0.5\textwidth]{aux/compute}
+
+
 \item Encienda de uno en uno los Nodos trabajadores que haya creado, empezando por el \textit{compute-0-0} y así sucesivamente. Observará que aparece en la interfaz \texttt{insert-ethers} la dirección MAC del Nodo Trabajador, se le asignará el nombre compute-0-0 y si aparece un símbolo de asterísco es porque recibió exitosamente la imagen para la instalación de Linux.
+
+
+
+\includegraphics[width=0.5\textwidth]{aux/nodosinsertados}
+
 
 \item Una vez de que los nodos se termine de instalar automáticamente salga de la interfaz de \texttt{insert-ethers} en el Master con la tecla F8.
 
