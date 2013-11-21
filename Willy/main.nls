@@ -1,0 +1,84 @@
+\begin{thenomenclature} 
+
+ \nomgroup{A}
+
+  \item [{A}]\begingroup Amperios\nomeqref {18}\nompageref{38}
+  \item [{AC}]\begingroup Corriente alterna, por sus siglas en inglés\nomeqref {18}
+		\nompageref{38}
+  \item [{ADC}]\begingroup Convertidor analógica digital, por sus siglas en inglés\nomeqref {18}
+		\nompageref{39}
+  \item [{ALSA}]\begingroup Advanced Linux Sound Architecture\nomeqref {18}
+		\nompageref{48}
+  \item [{CWT}]\begingroup Transformada wavelet continua, por sus siglas en inglés\nomeqref {15}
+		\nompageref{29}
+  \item [{DC}]\begingroup Corriente directa, por sus siglas en inglés\nomeqref {18}
+		\nompageref{38}
+  \item [{DCT}]\begingroup Transformada discreta coseno, por sus siglas en inglés\nomeqref {18}
+		\nompageref{34}
+  \item [{DTFT}]\begingroup Discrete Time Fourier Transform\nomeqref {11}
+		\nompageref{26}
+  \item [{DWT}]\begingroup Transformada wavelet discreta, por sus siglas en inglés\nomeqref {16}
+		\nompageref{30}
+  \item [{FFT}]\begingroup Transformada rápida de Fourier, por sus siglas en inglés\nomeqref {18}
+		\nompageref{58}
+  \item [{FIR}]\begingroup Respuesta finita al impulso, por sus siglas en inglés\nomeqref {18}
+		\nompageref{51}
+  \item [{FN}]\begingroup Frecuencia de Nyquist\nomeqref {1}
+		\nompageref{22}
+  \item [{Fs}]\begingroup Frecuencia de muestreo\nomeqref {18}
+		\nompageref{51}
+  \item [{GPIO}]\begingroup Entradas y salidas de propósito general, por sus siglas en inglés\nomeqref {18}
+		\nompageref{41}
+  \item [{GPL}]\begingroup GNU General Public license\nomeqref {18}
+		\nompageref{48}
+  \item [{GUI}]\begingroup Interfaz gráfica de usuario, por sus siglas en inglés\nomeqref {18}
+		\nompageref{52}
+  \item [{HDMI}]\begingroup High-Definition Multimedia Interface\nomeqref {18}
+		\nompageref{36}
+  \item [{HMM}]\begingroup Modelos de markov ocultos, por sus siglas en inglés\nomeqref {0}
+		\nompageref{7}
+  \item [{Hz}]\begingroup Hertz\nomeqref {18}\nompageref{38}
+  \item [{iDWT}]\begingroup Transformada wavelet discreta inversa, por sus siglas en inglés\nomeqref {18}
+		\nompageref{58}
+  \item [{IIR}]\begingroup Respuesta infinita al impulso, por sus siglas en inglés\nomeqref {18}
+		\nompageref{51}
+  \item [{ksps}]\begingroup Kilo-muestras por segundo, por sus siglas en inglés\nomeqref {18}
+		\nompageref{39}
+  \item [{LGPL}]\begingroup GNU Lesser General Public license\nomeqref {18}
+		\nompageref{48}
+  \item [{LPCC}]\begingroup Coeficientes cepstral de predicción lineal, por sus siglas en inglés\nomeqref {0}
+		\nompageref{7}
+  \item [{LSB}]\begingroup Bit menos significativo, por sus siglas en inglés\nomeqref {0}
+		\nompageref{21}
+  \item [{MFCC}]\begingroup Mel-frequency cepstral coefficients\nomeqref {0}
+		\nompageref{7}
+  \item [{OFDM}]\begingroup Orthogonal Frequency Division Multiplexing\nomeqref {18}
+		\nompageref{35}
+  \item [{OS}]\begingroup Sistema operativo, por sus siglas en inglés\nomeqref {18}
+		\nompageref{42}
+  \item [{OSS}]\begingroup Open Sound System\nomeqref {18}
+		\nompageref{48}
+  \item [{PCA}]\begingroup Análisis de componentes principales, por sus siglas en inglés\nomeqref {0}
+		\nompageref{7}
+  \item [{POO}]\begingroup Programación Orientada a Objetos\nomeqref {18}
+		\nompageref{42}
+  \item [{pywt}]\begingroup PyWavelets\nomeqref {18}\nompageref{47}
+  \item [{Rpi}]\begingroup Raspberry Pi\textregistered \nomeqref {0}
+		\nompageref{18}
+  \item [{SPI}]\begingroup Serial Peripheral Interface\nomeqref {18}
+		\nompageref{39}
+  \item [{SSH}]\begingroup Secure Shell\nomeqref {18}\nompageref{52}
+  \item [{STFT}]\begingroup Short time Fourier transform\nomeqref {15}
+		\nompageref{28}
+  \item [{SVM}]\begingroup Support vector machines\nomeqref {0}
+		\nompageref{7}
+  \item [{TEO}]\begingroup Operadores de energía de Teager, por sus siglas en inglés\nomeqref {0}
+		\nompageref{7}
+  \item [{UPM}]\begingroup Universidad Politécnica de Madrid\nomeqref {0}
+		\nompageref{7}
+  \item [{USB}]\begingroup Universal Serial Bus\nomeqref {18}
+		\nompageref{38}
+  \item [{V}]\begingroup Voltios\nomeqref {18}\nompageref{38}
+  \item [{W}]\begingroup Vatios\nomeqref {18}\nompageref{52}
+
+\end{thenomenclature}
