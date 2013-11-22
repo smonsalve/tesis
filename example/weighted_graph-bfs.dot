@@ -1,0 +1,35 @@
+graph g {
+  subgraph cluster_0 {
+    label="p0";
+    n0[label=0];
+    n1[label=2];
+  }
+
+  n0 -- n2;
+  n1 -- n1;
+  n1 -- n3;
+  n1 -- n4;
+
+  subgraph cluster_1 {
+    label="p1";
+    n2[label=1];
+  }
+
+  n2 -- n1;
+  n2 -- n3;
+
+  subgraph cluster_2 {
+    label="p2";
+    n3[label=2];
+  }
+
+  n3 -- n4;
+
+  subgraph cluster_3 {
+    label="p3";
+    n4[label=1];
+  }
+
+  n4 -- n0;
+  n4 -- n1;
+}
