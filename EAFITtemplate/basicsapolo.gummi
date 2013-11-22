@@ -1,0 +1,6 @@
+version=0.6.0
+typesetter=pdflatex
+steps=texpdf
+root=/home/jdpinedac/Apolo/apolo-slides/basics/apolobasics.tex
+
+file=/home/jdpinedac/Apolo/apolo-slides/basics/partes/intro.tex

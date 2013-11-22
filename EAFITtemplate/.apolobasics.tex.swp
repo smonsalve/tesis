@@ -1,0 +1,154 @@
+\documentclass[ignorenonframetext]{beamer}
+%\documentclass[utf8]{article}
+%\usepackage[]{beamerarticle}
+\usepackage[utf8]{inputenc}
+%\usepackage[latin1]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{pgfpages}
+\usepackage{graphics}
+\usepackage{graphicx}
+
+
+\mode<presentation>{
+  \usebackgroundtemplate{\includegraphics[width=\paperwidth,height=\paperheight]{imgs/backgroundtemplate.jpg}} 
+  \setbeamercovered{transparent}
+  \usefonttheme{structurebold}
+  \setbeamersize{sidebar width left=1cm}
+  \setbeamersize{sidebar width right=0.5cm}
+  \setbeamersize{description width right=0.5cm}
+  \setbeamertemplate{blocks}[rounded][shadow=true]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Experimental%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ % \setbeamertemplate{headline}{\vspace{10cm}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \useinnertheme{rounded}
+%\useinnertheme{rectangles}
+  \useoutertheme{default}
+%  \usecolortheme{rose}
+
+  \setbeamertemplate{frametitle}
+  {
+    \begin{centering}
+      \color{blue}
+      \textbf{\insertframetitle}
+      \par
+    \end{centering}
+  }
+
+  \AtBeginPart{
+    \begin{frame}
+      \partpage
+    \end{frame}
+  }
+
+  \AtBeginSection[]{
+    \begin{frame}<beamer>
+      \frametitle{Contenido}
+      \tableofcontents[currentsubsection]
+    \end{frame}
+  }
+
+  \setbeamertemplate{headline}
+                    {%
+                      \begin{beamercolorbox}[default theme]{section in head/foot}
+                        \vskip40pt\vskip0pt
+                      \end{beamercolorbox}%
+                    }
+
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Experimental%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newenvironment{changemargin}[2]{%
+%   \begin{list}{}{%
+%     \setlength{\topsep}{10pt}%
+%     \setlength{\leftmargin}{#1}%
+%     \setlength{\rightmargin}{#2}%
+%     \setlength{\listparindent}{\parindent}%
+%     \setlength{\itemindent}{\parindent}%
+%     \setlength{\parsep}{\parskip}%
+%   }%
+%   \item[]}{\end{list}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Experimental%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\setlength{\hoffset}{1in}
+%\setlength{\oddsidemargin}{0in} \setlength{\evensidemargin}{0in}
+%\setlength{\voffset}{1in} \setlength{\topmargin}{0in}
+%\setlength{\headheight}{1in}
+%\setlength{\topmargin}{0.4in}
+
+%El siguiente es el unico que funciona
+%\setlength{\headsep}{0.4in}
+
+%--
+%\setlength{\textheight}{11in - TOPMARGIN - BOTTOMMARGIN - 0.7IN IF HEADER}
+%\setlength{\textwidth}{8.5IN - LEFT MARGIN - RIGHT MARGIN}
+%\setlength{\footskip}{-1in}
+%\setlength{\footsep}{0.4in}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Experimental%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \setbeamertemplate{headline}
+% {%
+%   \begin{beamercolorbox}[default theme]{section in head/foot}
+%     \vskip18pt\insertnavigation{\paperwidth}\vskip0pt
+%   \end{beamercolorbox}%
+% }
+
+% \setbeamertemplate{footline}
+% {%
+%   \begin{beamercolorbox}[infolines theme]{section in head/foot}
+%     \vskip2pt\insertnavigation{\paperwidth}\vskip1pt
+%   \end{beamercolorbox}%
+% }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title[Apolos Básico]{INTRODUCCIÓN A APOLO \newline Nivel Básico}
+%\subtitle{}
+
+\author[]{Juan David Pineda Cárdenas \texttt{<jpineda2@eafit.edu.co>}
+}
+
+\institute[Universidad EAFIT]{
+  \large Centro de Computación Científica Apolo
+}
+
+\date[Universidad EAFIT]{2013} 
+
+\subject{Linux Básico, HPC, Apolo}
+
+\keywords{Linux, Redes, seguridad}
+
+
+%% \AtBeginSubsection[]{
+%%   \begin{frame}<beamer>
+%%     \frametitle{Contenido}
+%%     \tableofcontents[currentsection,currentsubsection]
+%%   \end{frame}
+%% }
+
+%The following line must be commented if you won't need a slide per line
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+\begin{frame}
+ \begin{figure}[htp]
+	\centering
+	\includegraphics[scale=0.5]{imgs/Logo-Apolo-color-transp.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+
+\mode<all>
+\input{partes/intro}
+\mode*
+
+\input{partes/Sumario} 
+\input{partes/Referencias} 
+\end{document}
