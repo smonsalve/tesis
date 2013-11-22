@@ -1,0 +1,43 @@
+Ejecución
+
+Contando ya con el ambiente necesario para la ejecucion del codigo a paralelizar se procede a realizar los siguientes pasos: 
+
+
+desde la maquina virtual del master abrimos una consola. 
+
+nos loggeamos como el usuario sin privilegios a través de ssh
+
+smonsalve@192.168.56.101
+
+
+
+mpirun -n 4 -machinefile nodes.txt breadth_first_search < weighted_graph.gr
+
+weighted_graph-bfs.dot
+
+
+
+
+nodes.txt
+
+
+compute-0-0
+compute-0-0
+compute-0-1
+compute-0-1
+
+
+
+
+Codigo Fuente
+
+Datos de Entrada
+
+Salida ( a donde? )
+
+Archivo de Errores
+
+Torque  ( Nodos  )
+
+PBS
+ 
