@@ -20,7 +20,7 @@
   urlcolor=black           % color of external links }
 }
 
-\renewcommand{\listfigurename}{Lista de Imagenes}
+\renewcommand{\listfigurename}{Lista de Imágenes}
 \renewcommand{\figurename}{Imagen}
 
 \usepackage{listings}
@@ -70,7 +70,7 @@
 
 \title{
 	Proyecto de Grado\\[0.5cm]
-	Instalación, Implementación y Uso de las librerías Boost y su aplicación en recorrido de grafos para la supercomputadora Apolo
+	Instalación, Implementación y Uso de las librerías Boost y su aplicación en recorrido de grafos para el centro de computación científica Apolo
 }
 
 \vspace{1cm}
@@ -81,7 +81,7 @@
 	Código: 200410061010\\
 	smonsal3@eafit.edu.co\\[0.7cm]
 	Asesor: \\[0.3cm]
-	Juan Guillermo Lalinde Pulido\\
+	Juan Guillermo Lalinde Pulido, Phd\\
 	jlalinde@eafit.edu.co\\
 	2619500 ext 9588%\\[1cm]
 }
@@ -101,12 +101,12 @@
 
 \thispagestyle{empty} % Esta pagina no se numera
 \begin{center}
-\textbf{{\Large Instalación, Implementación y Uso de las librerías Boost y su aplicación en recorrido de grafos para la supercomputadora Apolo}}\\[3cm]
+\textbf{{\Large Instalación, Implementación y Uso de las librerías Boost y su aplicación en recorrido de grafos para el centro de computación científica Apolo}}\\[3cm]
 {\Large Sergio Andrés Monsalve Castañeda} \\ {\large \textit{smonsal3@eafit.edu.co}}\\[2.5cm]
 %{\large\emph{\textbf{Trabajo de grado presentado como requisito }}}\\
 %\emph{\textbf{parcial  para optar al t\'itulo de Ingeniero Físico}}}\\[3cm]
 
-{\large \textbf{Asesor:} \\ Doctor Juan Guillermo Lalinde Pulido}\\[3cm]
+{\large \textbf{Asesor:} \\Juan Guillermo Lalinde Pulido, Phd}\\[3cm]
 
 Ingeniería de Sistemas \\ Departamento de Informática y Sistemas  \\ Escuela de Ingeniería \\ Universidad EAFIT \\ Medellín, Colombia.\\
 2013
@@ -170,17 +170,23 @@ Ingeniería de Sistemas \\ Departamento de Informática y Sistemas  \\ Escuela d
 
 \begin{abstract}
 
-	Existe una gran cantidad de problemas que debido a su complejidad no es posible resolver, sea porque requieren mucho tiempo o la complejidad de estos esta tal que los hace inviables, adicionalmente cada vez surgen nuevos problemas, aun mas complejos. 
+	Dentro de los problemas que se estudian en las ciencias de la computación y sus aplicaciones, existe una gran cantidad de problemas que se han planteado para resolver. Dentro de este conjunto se encuentran los computables y los no computables. Adicionalmente cada vez surgen nuevos problemas, aun mas complejos, con mas interacciones y datos para analizar. 
 
+	Dentro de los problemas computables 
+
+	\todo[inline,caption={TODO}]{pilas}
+
+	 
+	 la complejidad de la solución a los mismos esta tal que los hace inviables, es decir, la solución de estos requiere tanto tiempo (cientos o miles de años de procesamiento) debido a su complejidad que ya no tiene sentido resolver.
+
+	
 	Con el crecimiento de la capacidad computacional ya es posible abordar algunos de ellos que antes hubieran tomado mucho tiempo o simplemente no hubiese sido posible resolver. 
 
-	Dentro de este amplia gama de problemas, existen un subcojunto particular que pueden ser modelados mediante la teoría de grafos, una gran herramienta que ofrece las ciencias de la computación.
+	Dentro de este amplia gama de problemas, existen un subconjunto particular que pueden ser modelados mediante la teoría de grafos, una  abstracción  que ofrece las ciencias de la computación para la solución de un conjunto determinado de problemas que cumplen con ciertas características. Aunque los algoritmos para grafos tienen una complejidad alta en general, existen algoritmos paralelos.
 
-	Aunque los algoritmos para grafos tienen una complejidad alta en general, existen algoritmos paralelos.
+	En este proyecto se pretende introducir al amplio mundo de la computación de alto rendimiento, mediante	el procedimiento de instalación y ejecución en un ambiente de pruebas que pretende simular el funcionamiento del centro de computo científico ``Apolo'', el supercomputador de EAFIT. La configuración y uso de la ``infraestructura'' básica para que un programador, utilizando las librerías BOOST para C++, pueda desarrollar rápidamente aplicaciones que aprovechen su capacidad computacional. 
 
-	En este proyecto se pretende instalar en Apolo, el supercomputador de EAFIT, la infraestructura básica para que un programador, utilizando las librerías BOOST para C++, pueda desarrollar rápidamente aplicaciones que aprovechen su capacidad computacional. 
-
-	De esta manera se pretende beneficiar a la Comunidad Científica, Comunidad académica, Estudiantes de Ingeniería de Sistemas, Estudiantes de Ingenieria Matematica y en General a quien necesite realizar computo en un ambiente de computación de alto rendimiento, clusters computacionales, grafos en paralelo utilizando Boost, o requiera de una introducción a este tema.
+	De esta manera se pretende beneficiar a la Comunidad Científica, Comunidad académica, Estudiantes de Ingeniería de Sistemas, Estudiantes de Ingeniería Matemática y en General a quien necesite realizar computo en un ambiente de computación de alto rendimiento, clústers computacionales, grafos en paralelo utilizando Boost, o requiera de una introducción al tema.
 
 
 \end{abstract}
@@ -190,21 +196,29 @@ Ingeniería de Sistemas \\ Departamento de Informática y Sistemas  \\ Escuela d
 \renewcommand{\abstractname}{Agradecimientos}
 \begin{abstract}
 
-	Quiero agradecer a Juan Guillermo Lalinde quien desde el inicio de mi carrera me inspiró y apoyó en grandes retos acádemicos. A Juan David Pineda por toda su paciencia para explicarme el funcionamiento de Apolo. Por ultimo agradezco a John Jairo Silva, Alejandro Gómez, Mateo Gómez, Jaime Pérez y John Mario Gutiérrez por sus multiples colaboraciones. 	
+	Quiero agradecer a Juan Guillermo Lalinde quien desde el inicio de mi carrera me inspiró y apoyó en grandes retos académicos, por su paciencia y confianza a la hora de explicarme cada una de las múltiples dudas que surgían en el proceso.
+
+	A Juan David Pineda por toda su paciencia para explicarme el funcionamiento de Apolo. 
+
+	Por ultimo manifestarle mi gratitud a John Jairo Silva, Alejandro Gómez, Mateo Gómez, Jaime Pérez y John Mario Gutiérrez por sus múltiples explicaciones y colaboraciones. 	
 
 	\todo[inline,caption={TODO}]{ Pendientes:
-	\begin{itemize}
-		\item agradecimientos
-		\item Mejorar Introducción, Objetivos, alc, prod...
-		\item completar el marco de referencia.
-		\item Converitir a Figuras
-		\item Completar Glosario
+	\begin{enumerate}
+		% \item Agradecimientos
+		\item Convertir a Figuras
+
 		\item Ejecución
 		\item Instalación
+
 		\item Conclusiones
 		\item Trabajo Futuro
-		\item Bibliografia
-	\end{itemize}
+
+		\item Mejorar Introducción, Objetivos, alc, prod...
+		\item Marco de referencia
+		
+		\item Completar Glosario
+		\item Bibliografía
+	\end{enumerate}
 	
 	}
 
@@ -233,13 +247,9 @@ Ingeniería de Sistemas \\ Departamento de Informática y Sistemas  \\ Escuela d
 \chapter{Trabajo Futuro}
 \input{caps/Futuro}
 
-\chapter{Glosario}
-	\label{chapGlosario}
+\chapter{Glosario} \label{chapGlosario}
+\input{caps/Glosario}
 
-	\begin{description}
-		\item[HPC:] (High Performance Computing) Computación de alto desempeño.
-		\item[Data Center:]
-	\end{description}
 
 \newpage
 
@@ -259,19 +269,7 @@ Ingeniería de Sistemas \\ Departamento de Informática y Sistemas  \\ Escuela d
 \newpage
 
 \appendix
-
 \chapter{Repositorio del código}
-
-	Para una copia del código utilizado dirigirse a: \url{https://github.com/smonsalve/tesis.git}
-
-	OVA de la maquina virtual con Rocks instalado y dos nodos.
-
-	Datos de Entrada para el grafo
-
-	\todo[inline,caption={TODO}]{Agregar al repositorio.}
-			
-
-	Script de Instalación de Boost y MPI.
-
+\input{caps/Apendix}
 
 \end{document}

@@ -1,17 +1,8 @@
 \section{Virtualización de un cluster}
 
 \todo[inline,caption={TODO}]{
-
 Aca va la descripción de porque es importante virtualizar, para que se necesita y que es lo que se esta virtualizando. 
-
-\begin{itemize}
-	\item Procedimientos de Virtualización
-	\item Instalación de Software en el Cluster
-	\item Ejecución y Sistema de Colas
-
-\end{itemize}
 }
-
 
 % http://galois.eafit.edu.co/vms/devenv/rocks-6.1/
 
@@ -19,8 +10,15 @@ En este capitulo se presenta el procedimientos para la virtualización
 
 
 
-La siguiente es la descripción de los pasos a seguir para la creación de un ambiente de pruebas paralelo virtualizado que simula el cluster de Apolo.\footnote{Estas instrucciones fueron probadas en un ambiente de Linux Fedora 18.}
+La siguiente es la descripción de los pasos a seguir para la creación de un ambiente de pruebas paralelo virtualizado que simula el clúster de Apolo.\footnote{Estas instrucciones fueron probadas en un ambiente de Linux Fedora 18.}
 
+\subsection{Requerimientos Mínimos}
+
+\begin{itemize}
+	\item Verifique que su computador puede virtualizar: Ingrese a la BIOS y verifique que esta activada la opción de Virtualización de Hardware. 
+
+	\item 3Gb de RAM (o mas)  disponibles para virtualizar.\footnote{1024 RAM para cada Maquina Virtual}
+\end{itemize}
 
 \subsection{Configuración del Nodo Maestro}
 \begin{enumerate}
@@ -30,7 +28,7 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.5\textwidth]{aux/vb_instalado}
-		\caption{ventana de Virtualbox recien instalado}
+		\caption{Ventana de Virtualbox después de la instalación}
 		%(tomada de \cite{WikiEmotion)}
 		\label{vb_instalado}
 	\end{figure}
@@ -57,7 +55,7 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 	\includegraphics[width=0.5\textwidth]{aux/hostonly}
 	
 
-	\item Haga click en aceptar para finalizar la operación.
+	\item Haga clic en aceptar para finalizar la operación.
 
 \end{itemize}
 
@@ -72,7 +70,7 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 \includegraphics[width=0.5\textwidth]{aux/applianceops2}
 
 
-\item Señale la máquina virtual llamada ``Master'' y vaya a la configuración y revise la siguiente configuración en esta:
+\item Seleccione la máquina virtual llamada ``Master'' y vaya a la configuración y revise la siguiente configuración en esta:
 
 \begin{itemize}
 
@@ -99,14 +97,14 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 
 \end{itemize}
 
-\item Señale la máquina Master e iníciela.
+\item Seleccione la máquina Master e iníciela.
 
 \item Una vez iniciada la máquina virtual del Master proceda a crear una nueva máquina virtual como Nodo Trabajador a partir de los siguientes pasos:
 
 \begin{itemize}
-	\item Haga click en Crear Nueva Máquina.
+	\item Haga clic en Crear Nueva Máquina.
 
-	\item El nombre será \textit{compute-0-0}.
+	\item El nombre será \texttt{compute-0-0}.
 
 	\item El tipo será Linux.
 
@@ -114,7 +112,7 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 
 	\includegraphics[width=0.5\textwidth]{aux/opcnodo1}
 
-	\item Click en siguiente.
+	\item Clic en siguiente.
 
 	\item Asigne 1024 Megabytes de Memoria RAM\footnote{La cantidad de memoria RAM asignada será proporcional a la que tenga el sistema en el cual están las máquinas virtuales. Igual con el disco duro y los procesadores, sin embargo, para efectos de ver la paralelización en memoria compartida se recomienda tener 2 procesadores por máquina}.
 
@@ -139,13 +137,13 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 \item Una vez creado el nodo trabajador se procede a configurarlo a partir de los siguientes pasos:
 
 \begin{itemize}
-	\item Señalar la máquina \textit{compute-0-0} y dar click en Configurar.
+	\item Señalar la máquina \texttt{compute-0-0} y dar clic en Configurar.
 
 	\item En la pestaña Sistema, asegúrese de que tenga la cantidad de memoria RAM correcta
 
-	\item Deshabilite el \textit{floppy disk}
+	\item Deshabilite el \texttt{floppy disk}
 
-	\item habilite la red como dipositivo de \textit{booteo} y además súbalo como primer dispositivo, sólo deberá quedar la tarjeta de red como primera opción y como segunda el disco duro de la máquina virtual, de esta manera nos aseguramos que esta máquina virtual pueda instalarse automáticamente de manera desatendida, por esta razón el clúster es escalable. 
+	\item habilite la red como dipositivo de \texttt{booteo} y además súbalo como primer dispositivo, sólo deberá quedar la tarjeta de red como primera opción y como segunda el disco duro de la máquina virtual, de esta manera nos aseguramos que esta máquina virtual pueda instalarse automáticamente de manera desatendida, por esta razón el clúster es escalable. 
 
 	\includegraphics[width=0.5\textwidth]{aux/nodoopsboot}
 
@@ -166,7 +164,7 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 \end{itemize}
 
 
-\item Repita los pasos para crear otro nodo si lo considera necesario para crear el \textit{compute-0-1}, siempre y cuando la computadora que usted tiene soporte una tercera máquina virtual ejecutandose al tiempo que el Nodo Master y el \textit{compute-0-0}
+\item Repita los pasos para crear otro nodo si lo considera necesario para crear el \texttt{compute-0-1}, siempre y cuando la computadora que usted tiene soporte una tercera máquina virtual ejecutandose al tiempo que el Nodo Master y el \texttt{compute-0-0}
 
 \item Ingrese en el Nodo Master como usuario \texttt{root} y la contraseña es \texttt{apolito123!}
 
@@ -188,7 +186,7 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 \includegraphics[width=0.5\textwidth]{aux/compute}
 
 
-\item Encienda de uno en uno los Nodos trabajadores que haya creado, empezando por el \textit{compute-0-0} y así sucesivamente. Observará que aparece en la interfaz \texttt{insert-ethers} la dirección MAC del Nodo Trabajador, se le asignará el nombre compute-0-0 y si aparece un símbolo de asterísco es porque recibió exitosamente la imagen para la instalación de Linux.
+\item Encienda de uno en uno los Nodos trabajadores que haya creado, empezando por el \texttt{compute-0-0} y así sucesivamente. Observará que aparece en la interfaz \texttt{insert-ethers} la dirección MAC del Nodo Trabajador, se le asignará el nombre compute-0-0 y si aparece un símbolo de asterisco es porque recibió exitosamente la imagen para la instalación de Linux.
 
 
 
@@ -212,23 +210,27 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 \subsection{Configuración de los Nodos Esclavos}
 
 \begin{enumerate}
-	\item Una vez que se tiene el nodo Master funcionando y por lo menos un nodo trabajador como el \textit{compute-0-0} se procede a realizar los siguientes pasos de configuración:
+	\item Una vez que se tiene el nodo Master funcionando y por lo menos un nodo trabajador como el \texttt{compute-0-0} se procede a realizar los siguientes pasos de configuración:
 
 	\begin{itemize}
 	\item Adicione un usuario sin privilegios con los siguientes comandos\footnote{En adelante el usuario de ejemplo será jdpinedac, pero usted podrá asignar el nombre de usuario que desee}:
 
 	\begin{itemize}
-		\item \textbf{\texttt{adduser jdpinedac}} Para crear un usuario sin privilegios.
+		\item \textbf{\texttt{adduser smonsalve}} Para crear un usuario sin privilegios.
 
-		\item \textbf{\texttt{passwd jdpinedac}} Para cambiar la contraseña del usuario.
+		\item \textbf{\texttt{passwd smonsalve}} Para cambiar la contraseña del usuario.
 
 		\item \textbf{\texttt{rocks sync users}} Para sincronizar el usuario creado en todo el cluster, este usuarió estará creado tanto en el nodo master como en los nodos trabajadores.
 	\end{itemize}
 
-	\item \textit{su - jdpinedac} Para que el usuario \texttt{root} se convierta en el usuario sin privilegios. Se le harán algunas preguntas de contraseñas, déjelas vacías presionando la tecla \textit{enter} varias veces.
+	\item \texttt{su - smonsalve} Para que pasemos de estar con el usuario \texttt{root} y estemos con en el usuario sin privilegios. Se le harán algunas preguntas de contraseñas, puede llenarlas o déjelas vacías y continuar presionando la tecla \texttt{enter} varias veces.
 	\end{itemize}
 	
 \end{enumerate}
+
+\subsection{Apagar el Clúster}
+
+\todo[inline,caption={TODO}]{Importante}
 
 
 \section{Preguntas Frecuentas:}[Posibles Problemas]
@@ -237,46 +239,10 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 	\item Los nodos de trabajo no inician Correctamente: Es posible que estos hayan sido apagados de manera incorrecta. 
 	siga el procedimiento desde el numeral X hasta el Y de ``ASDF''
 
-	\item Verifique que su computador puede virtualizar: Ingrese a la BIOS y verifique que esta activida la opcion de Virtualización de Hardware. 
-
-	\item Si su caso no se encuentra aqui listado contacte al autor
+	\item 
+	\item Si su caso no se encuentra aquí listado contacte al autor
 \end{itemize}
 
 
 
 
-
-Imagen de apolo.
-Definir los nodos.
-
-\section{MPI}
-
-\subsection{OpenMPI}
-\subsection{Mpich}
-
-\section{Boost Graph Library}
-
-	build mpi
-	build GraphParallel
-	build serilization
-
-Boost and Eclipse
-	configuración
-	
-\subsection{Parallel Boost Graph Library (Parallel BGL) }
-\subsubsection{Seriallization}
-\subsubsection{Regex}
-\subsubsection{Parallel}
-\subsubsection{MPI}
-
-\subsection{Instalacion de Boost en Apolo}
-
-\subsection{makefile}
-
-Cómo ejecutar el script de installación 
-
-que se debe modificar en el makefile\cite{Wall2000}
-
-instalar rpm de Boost:
-Cuando se formatea o reinicia máquina
-Cuando se instala normalmente.

@@ -1,3 +1,11 @@
+
+Ejemplo Programa Corriendo en Apolo
+
+Programa Normal. 
+
+Ejecturar
+
+
 Ejecución
 
 Contando ya con el ambiente necesario para la ejecucion del codigo a paralelizar se procede a realizar los siguientes pasos: 
@@ -9,13 +17,9 @@ nos loggeamos como el usuario sin privilegios a través de ssh
 
 smonsalve@192.168.56.101
 
-
-
 % mpirun -n 4 -machinefile nodes.txt breadth_first_search < weighted_graph.gr
 
 %weighted_graph-bfs.dot
-
-
 
 
 nodes.txt
@@ -40,4 +44,40 @@ Archivo de Errores
 Torque  ( Nodos  )
 
 PBS
+
+
+
+
+Instalacion de Boost
+
+
+
+
+rocks run host rmpb -ivh /export/apps/installers/*.rpm
+
+
+Agregar usuario sin privilegios. 
+
+adduser smonsalve
+passwd smonsalve
+rocks sync users
+
+
+insert-ethers --remove compute-0-0
+insert-ethers --remove compute-0-1
+insert-ethers 
+
+rocks run host hostname
+rocks run host poweroff
+
+
+
+Debido a las relaciones de confianza entre el master y los nodo
+
+
+ssh compute-0-0
+ssh compute-0-1
+
+
+Para monitorear la actividad del master y los nodos podemos utiliar el programa htop, el cual se encarga de mostrarnos los procesos, las cpus y los cores disponibles dentro del nodo. 
  

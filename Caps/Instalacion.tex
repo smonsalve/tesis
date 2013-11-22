@@ -1,45 +1,101 @@
-Ejemplo Programa Corriendo en Apolo
+Este procedimiento de instalación esta basado en la instalación de Repast HPC del cual podran ver mas en el
 
-Programa Normal. 
+\todo[inline,caption={TODO}]{referencia de repast}
 
-Ejecturar
+Para el proceso de instalación del software necesario, estando en el nodo maestro con el usario root procedemos a realizar las siguientes instrucciones: 
 
+\todo[inline,caption={TODO}]{Crear archivo para instalación}
 
-\lstinputlisting[label=Installing Boost,caption=Script de Instalación de Boost]{code/install.sh}
+Debemos descargar GrafosApoloBoostMpi.tar.gz de la dirección \url{goo.gl/} y procedemos a descomprimirlo en la carpeta compartida del cluster
 
+\begin{verbatim}
+$ cd /share/Apps/installers/
+\end{verbatim}
 
-Instalacion de Boost
+\begin{verbatim}
+$ tar xvf GrafosApoloBoostMpi.tar.gz
+\end{verbatim}
 
+En este archivo se encuentran los siguientes archivos: 
 
-Repast HPC
-%wget http://repast.sourceforge.net/hpc_tutorial/SRC.tar.gz
-tar xvf SRC.tar.gz
+\begin{itemize}
+	\item Boost 1.54
+	\item mpich 
+	\item Archivo de instalación
+\end{itemize}
 
-rocks run host rmpb -ivh /export/apps/installers/*.rpm
+\newpage
 
+\section{Instalación MPI}
 
-Agregar usuario sin privilegios. 
+Para instalar mpich nos movemos a la carpeta de instalación:
 
-adduser smonsalve
-passwd smonsalve
-rocks sync users
+\begin{verbatim}
+$ cd /INSTALLATION
+\end{verbatim}
 
+y procedemos a ejecutar el script de instalación con mpich como argumento de la siguiente manera:
 
-insert-ethers --remove compute-0-0
-insert-ethers --remove compute-0-1
-insert-ethers 
+\begin{verbatim}
+$ ./install.sh mpich
+\end{verbatim}
 
-rocks run host hostname
-rocks run host poweroff
+el cual ejecutara la siguiente secuencia de instrucciónes: 
 
+\begin{itemize}
+	\item Define una variable como el directorio base donde se encuentran los archivos.
+	\item Verfica que no se haya corrido anteriormente el scprit o instalado mpich.
+	\item Verfica que se encuentre el archivo *.tar.gz para instalar mpich.
+	\item Descomprime el archivo.
+	\item Se cambia a la carpeta descomprimida.
+	\item Configura con los argumentos de instalación.
+	\item Hace make y make install.
+	\item Exporta el path en el que quedo instalado.
+\end{itemize}
 
+\newpage
 
-Debido a las relaciones de confianza entre el master y los nodo
+\lstinputlisting[label=Installing Mpich,caption=Script de Instalación de Mpich]{code/mpich.sh}
 
+\newpage
 
-ssh compute-0-0
-ssh compute-0-1
+\section{Instalación de Boost}
 
+Para instalar boost nos movemos a la carpeta de instalación:
 
-Para monitorear la actividad del master y los nodos podemos utiliar el programa htop, el cual se encarga de mostrarnos los procesos, las cpus y los cores disponibles dentro del nodo. 
+\begin{verbatim}
+$ cd /INSTALLATION
+\end{verbatim}
 
+y procedemos a ejecutar el script de instalación con boost como argumento de la siguiente manera:
+
+\begin{verbatim}
+$ ./install.sh mpich
+\end{verbatim}
+
+el cual ejecutara la siguiente secuencia de instrucciónes: 
+
+\begin{itemize}
+	\item Define una variable como el directorio base donde se encuentran los archivos.
+	\item Define una variable con la dirección que tiene mpich en el sistema.
+	\item Verfica que no se haya instalado o corrido anteriormente boost.
+	\item Verfica que se encuentre el archivo *.tar.gz para instalar boost.
+	\item Descomprime el archivo.
+	\item Se cambia a la carpeta descomprimida.
+	\item Copia los archivos descomprimidos a la carpeta de boost.
+	\item Configura con los argumentos de instalación y las banderas apropiadas (librerias a compilar).
+	\item corre el script de compilación propio de boost 
+\end{itemize}
+	
+\todo[inline,caption={TODO}]{Ambiente de Nota: la libreria que hace uso de Grafos en paralelo necesita de otras como : 
+\begin{itemize}
+	\item serialization 
+	\item mpi 
+	\item graph 
+	\item graph parallel 
+	\item regex 
+\end{itemize}
+}
+
+\newpage
+\lstinputlisting[label=Installing Boost,caption=Script de Instalación de Boost]{code/boost.sh}
