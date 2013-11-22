@@ -29,12 +29,9 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 	\end{figure}
 
 
-\item Descargar la imagen del Master.\footnote{\url{http://goo.gl/8eTJOr}}
-
-
+\item Descargar la imagen del Master del siguiente enlace: \url{http://goo.gl/8eTJOr}
 
 \item Una vez instalado VirtualBox en su computador, proceda a instalar el Extensión Pack: 
-
 	
 	\begin{figure}[H]
 		\centering
@@ -43,7 +40,6 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 		%(tomada de \cite{WikiEmotion)}
 		%\label{F-dimensions-emotion}
 	\end{figure}
-	
 	
 \begin{itemize}
 
@@ -59,7 +55,7 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 	\end{figure}
 	
 
-	\item Vaya a la sección Red $\rightarrow$ Adicione una red Sólo Anfitrión. Asegúrese en caso de tener o crear otra red solo anfitrión que todos los nodos compartan esta red.
+	\item Vaya a la sección Red $\rightarrow$ Adicione una red Sólo Anfitrión. Asegúrese en caso de tener o crear otra red ``Sólo anfitrión'' (Host Only) que todos los nodos compartan la misma red.
 
 
 	
@@ -306,8 +302,12 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 
 
 
-\item Ingrese el comando \texttt{insert-ethers}
+\item Para agregar las interfaces de los nodos ejecute el siguiente comando: 
 
+
+ \begin{verbatim}
+ $ insert-ethers
+ \end{verbatim}
 
 
 \begin{figure}[H]
@@ -351,13 +351,37 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 
 \item Una vez de que los nodos se termine de instalar automáticamente salga de la interfaz de \texttt{insert-ethers} en el Master con la tecla F8.
 
-\item Ingrese al directorio especificado con el siguiente comando: \texttt{cd /export/apps/installers}
+\item Ingrese al directorio especificado con el siguiente comando:
 
-\item Descargue el instalador del comando \texttt{htop} con la siguiente instrucción: \texttt{wget http://goo.gl/TDWExw}
 
-\item Instale \texttt{htop} en el nodo Master con la siguiente instrucción: \texttt{rpm -ivh htop*.rpm}
+\begin{verbatim}
+$ cd /export/apps/installers
+\end{verbatim}
 
-\item Ahora instale masivamente \texttt{htop} en el resto del clúster con el siguiente comando: \texttt{rocks run host ``rpm -ivh /share/apps/installers/htop*.rpm''}
+
+\item Descargue el instalador del comando \texttt{htop} con la siguiente instrucción:
+
+
+\begin{verbatim}
+$ wget http://goo.gl/TDWExw
+\end{verbatim}
+
+
+\item Instale \texttt{htop} en el nodo Master con la siguiente instrucción: 
+
+
+\begin{verbatim}
+$ rpm -ivh htop*.rpm}
+\end{verbatim}
+
+
+\item Ahora instale masivamente \texttt{htop} en el resto del clúster con el siguiente comando:
+
+
+\begin{verbatim}
+$  rocks run host ``rpm -ivh /share/apps/installers/htop*.rpm''}
+\end{verbatim}
+
 
 \item El cluster está completo.
 
@@ -372,14 +396,38 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 	\item Adicione un usuario sin privilegios con los siguientes comandos\footnote{En adelante el usuario de ejemplo será smonsalve, pero usted podrá asignar el nombre de usuario que desee}:
 
 	\begin{itemize}
-		\item \textbf{\texttt{adduser smonsalve}} Para crear un usuario sin privilegios.
+		\item  Para crear un usuario sin privilegios: 
 
-		\item \textbf{\texttt{passwd smonsalve}} Para cambiar la contraseña del usuario.
 
-		\item \textbf{\texttt{rocks sync users}} Para sincronizar el usuario creado en todo el cluster, este usuarió estará creado tanto en el nodo master como en los nodos trabajadores.
+		\begin{verbatim}
+		$ adduser smonsalve
+		\end{verbatim}
+		
+		\item Para cambiar la contraseña del usuario:
+
+
+		\begin{verbatim}
+		$ passwd smonsalve
+		\end{verbatim}
+		
+
+		\item Para sincronizar el usuario creado en todo el cluster, este usuarió estará creado tanto en el nodo master como en los nodos trabajadores.
+
+
+		\begin{verbatim}
+		$ rocks sync users
+		\end{verbatim}
+		
 	\end{itemize}
 
-	\item \texttt{su - smonsalve} Para que pasemos de estar con el usuario \texttt{root} y estemos con en el usuario sin privilegios. Se le harán algunas preguntas de contraseñas, puede llenarlas o déjelas vacías y continuar presionando la tecla \texttt{enter} varias veces.
+	\item Para cambiar del usuario \texttt{root} al recient creado usuario sin privilegios: 
+
+	\begin{verbatim}
+	$ su - smonsalve
+	\end{verbatim}
+
+	\item Se le harán algunas preguntas de contraseñas, puede llenarlas o déjelas vacías y continuar presionando la tecla \texttt{enter} varias veces: 
+
 	\end{itemize}
 	
 \end{enumerate}
@@ -395,24 +443,43 @@ Cada vez que se vaya a apagar el ambiente de Pruebas es necesario realizarlo con
 	$ rocks run host poweroff
  	\end{verbatim}
 
- 	\item 
+ 	\item Desde la misma consola para apagar el master: 
+
+ 	\begin{verbatim}
+ 	$ poweroff
+ 	\end{verbatim}
+ 	
   
 \end{itemize}
 
 
 
-
-
-
-
-\section{Preguntas Frecuentas:}[Posibles Problemas]
+\section{Posibles Problemas}
 
 \begin{itemize}
-	\item Los nodos de trabajo no inician Correctamente: Es posible que estos hayan sido apagados de manera incorrecta. 
-	siga el procedimiento desde el numeral X hasta el Y de ``ASDF''
 
-	\item 
-	\item Si su caso no se encuentra aquí listado contacte al autor
+	\item Los nodos de trabajo no inician Correctamente: Es posible que estos hayan sido apagados de manera incorrecta. 
+
+	\begin{itemize}
+		\item Remueva los nodos con el siguiente comando: 
+
+
+		\begin{verbatim}
+		$ insert-ethers --remove compute-0-0
+		$ insert-ethers --remove compute-0-1
+		\end{verbatim}
+
+		\item Apagargregue de nuevo los nodos: 
+
+
+		\begin{verbatim}
+		$ insert-ehters
+		\end{verbatim}
+		
+		
+	\end{itemize}
+
+
 \end{itemize}
 
 
