@@ -8,7 +8,8 @@
 \usepackage{graphicx}
 \usepackage{wrapfig}
 \usepackage{parskip}
-\usepackage{nomencl}
+\usepackage{float}
+
 \setlength{\parindent}{15pt}
 \usepackage{hyperref}
 \hypersetup{
@@ -18,6 +19,54 @@
   filecolor=black,      % color of file links
   urlcolor=black           % color of external links }
 }
+
+\renewcommand{\listfigurename}{Lista de Imagenes}
+\renewcommand{\figurename}{Imagen}
+
+\usepackage{listings}
+  \usepackage{courier}
+ \lstset{
+         basicstyle=\footnotesize\ttfamily, % Standardschrift
+         %numbers=left,               % Ort der Zeilennummern
+         numberstyle=\tiny,          % Stil der Zeilennummern
+         %stepnumber=2,               % Abstand zwischen den Zeilennummern
+         numbersep=5pt,              % Abstand der Nummern zum Text
+         tabsize=2,                  % Groesse von Tabs
+         extendedchars=true,         %
+         breaklines=true,            % Zeilen werden Umgebrochen
+         keywordstyle=\color{red},
+    		frame=b,         
+ %        keywordstyle=[1]\textbf,    % Stil der Keywords
+ %        keywordstyle=[2]\textbf,    %
+ %        keywordstyle=[3]\textbf,    %
+ %        keywordstyle=[4]\textbf,   \sqrt{\sqrt{}} %
+         stringstyle=\color{white}\ttfamily, % Farbe der String
+         showspaces=false,           % Leerzeichen anzeigen ?
+         showtabs=false,             % Tabs anzeigen ?
+         xleftmargin=17pt,
+         framexleftmargin=17pt,
+         framexrightmargin=5pt,
+         framexbottommargin=4pt,
+         %backgroundcolor=\color{lightgray},
+         showstringspaces=false      % Leerzeichen in Strings anzeigen ?        
+ }
+ \lstloadlanguages{% Check Dokumentation for further languages ...
+         %[Visual]Basic
+         %Pascal
+         %C
+         sh
+         %C++
+         %XML
+         %HTML
+         %Java
+ }
+    %\DeclareCaptionFont{blue}{\color{blue}} 
+
+  %\captionsetup[lstlisting]{singlelinecheck=false, labelfont={blue}, textfont={blue}}
+  \usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox[cmyk]{0.43, 0.35, 0.35,0.01}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
 
 \title{
 	Proyecto de Grado\\[0.5cm]
@@ -100,21 +149,21 @@ Ingeniería de Sistemas \\ Departamento de Informática y Sistemas  \\ Escuela d
 
 	\pdfbookmark[1]{\contentsname}{}
 	\tableofcontents
-	\cleardoublepage \phantomsection
+	%\cleardoublepage \phantomsection
 	%\newpage
-	\listoftables
-	\addcontentsline{toc}{section}{\protect\numberline{}\listtablename}
+	% \listoftables
+	% \addcontentsline{toc}{section}{\protect\numberline{}\listtablename}
 	%\pdfbookmark[1]{Lista de tablas}{}
-	\cleardoublepage \phantomsection
+	%\cleardoublepage \phantomsection
 	%\newpage
 	%\listfigurename
 	\listoffigures
 	\addcontentsline{toc}{section}{\protect\numberline{}\listfigurename}
 	%\pdfbookmark[1]{Lista de figuras}{}
-	\cleardoublepage \phantomsection
+	%\cleardoublepage \phantomsection
 	%\newpage
 	% \printnomenclature[2cm] %% Imprime la nomenclatura
-	\addcontentsline{toc}{section}{\protect\numberline{}\nomname}
+	%\addcontentsline{toc}{section}{\protect\numberline{}\nomname}
 	%\pdfbookmark[1]{Lista de abreviaturas y símbolos}{}
 
 
@@ -141,7 +190,23 @@ Ingeniería de Sistemas \\ Departamento de Informática y Sistemas  \\ Escuela d
 \renewcommand{\abstractname}{Agradecimientos}
 \begin{abstract}
 
-	En primer lugar quiero agradecer a Juan Guillermo Lalinde quien desde el inicio de mi carrera me inspiró y apoyó en grandes retos acádemicos. A Juan David Pineda por toda su paciencia para explicarme el funcionamiento de Apolo. Por ultimo agradezco a John Jairo Silva, Alejandro Gómez, Mateo Gómez, Jaime Pérez y John Mario Gutiérrez por sus multiples colaboraciones. 	
+	Quiero agradecer a Juan Guillermo Lalinde quien desde el inicio de mi carrera me inspiró y apoyó en grandes retos acádemicos. A Juan David Pineda por toda su paciencia para explicarme el funcionamiento de Apolo. Por ultimo agradezco a John Jairo Silva, Alejandro Gómez, Mateo Gómez, Jaime Pérez y John Mario Gutiérrez por sus multiples colaboraciones. 	
+
+	\todo[inline,caption={TODO}]{ Pendientes:
+	\begin{itemize}
+		\item agradecimientos
+		\item Mejorar Introducción, Objetivos, alc, prod...
+		\item completar el marco de referencia.
+		\item Converitir a Figuras
+		\item Completar Glosario
+		\item Ejecución
+		\item Instalación
+		\item Conclusiones
+		\item Trabajo Futuro
+		\item Bibliografia
+	\end{itemize}
+	
+	}
 
 \end{abstract}
 
@@ -201,8 +266,12 @@ Ingeniería de Sistemas \\ Departamento de Informática y Sistemas  \\ Escuela d
 
 	OVA de la maquina virtual con Rocks instalado y dos nodos.
 
-	Input data para Grafo (X Vertices y Y Aristas).
+	Datos de Entrada para el grafo
 
-	Makefile de Instalación.
+	\todo[inline,caption={TODO}]{Agregar al repositorio.}
+			
+
+	Script de Instalación de Boost y MPI.
+
 
 \end{document}
