@@ -1,0 +1,277 @@
+    1  nslookup www.google.com
+    2  ifconfig eth0
+    3  insert-ethers 
+    4  ssh compute-0-0
+    5  rocks run host hostname
+    6  rocks run host poweroff
+    7  poweroff
+    8  exit
+    9  insert-ethers --remove
+   10  insert-ethers --remove compute-0-0
+   11  insert-ethers --remove compute-0-1
+   12  insert-ethers
+   13  rocks run host hostname
+   14  ssh compute-0-0
+   15  adduser smonsalve
+   16  passwd smonsalve
+   17  rocks sync users
+   18  exit
+   19  rocks run host poweroff
+   20  poweroff
+   21  rocks ron host hostname
+   22  rocks run host hostname
+   23  nslookup google.cm
+   24  nslookup google.com
+   25  insert-ethers 
+   26  rocks run host hostname
+   27  nslookup google.com
+   28  nslookup www.eafit.edu.co
+   29  nautilus ./ &
+   30  ls
+   31  ls /etc/
+   32  ls /etc/ | grep *.conf
+   33  ls /etc/ | grep .conf
+   34  history
+   35  cat /etc/host.conf 
+   36  cat /etc/nfsmount.conf 
+   37  cat /etc/ntp.conf 
+   38  cat /etc/nfsmount.conf 
+   39  cat /etc/named.conf 
+   40  cat /etc/resolv.conf 
+   41  sudo emacs /etc/resolv.conf 
+   42  nslookup www.eafit.edu.co
+   43  sudo emacs /etc/resolv.conf 
+   44  nslookup www.eafit.edu.co
+   45  nslookup google.com
+   46  exit
+   47  ls
+   48  cd /export/apps/installers/
+   49  ls
+   50  history
+   51  clear
+   52  rocks run host rmpb -ivh /export/apps/installers/*.rpm
+   53  ifconfig eth0
+   54  ifconfig eth1
+   55  nslookup google.com
+   56  nslookup www.google.com
+   57  cat /etc/resolv.conf 
+   58  sudo emacs /etc/resolv.conf 
+   59  nslookup google.com
+   60  insert-ethers --remove compute-0-0
+   61  insert-ethers --remove compute-0-1
+   62  insert-ethers 
+   63  rocks run host hostname
+   64  cd /export/apps/
+   65  mail
+   66  ls
+   67  cd 
+   68  mv boost-graph-openmpi-1.41.0-11.el6_1.2.x86_64.rpm /export/apps/
+   69  cd /export/apps/
+   70  ls
+   71  mkdir installers
+   72  mv boost-graph-openmpi-1.41.0-11.el6_1.2.x86_64.rpm installers/
+   73  ls
+   74  cd installers/
+   75  ls
+   76  rpm -ivh boost-graph-openmpi-1.41.0-11.el6_1.2.x86_64.rpm 
+   77  rocks run host "rpm -ivh /share/apps/installers/*.rpm"
+   78  v boost-graph-openmpi-1.41.0-11.el6_1.2.x86_64.rpm /export/apps/installers/
+   79  mv boost-graph-openmpi-1.41.0-11.el6_1.2.x86_64.rpm /export/apps/installers/
+   80  cd 
+   81  ls
+   82  cd
+   83  ls
+   84  LS
+   85  ls
+   86  mv boost-openmpi-1.41.0-11.el6_1.2.x86_64.rpm /export/apps/installers/
+   87  cd /export/apps/RHPC_2.0/
+   88  which mpicxx
+   89  emacs INSTALL.txt 
+   90  ls
+   91  cd INSTALLATION/
+   92  ls
+   93  emacs Makefile
+   94  which mpcxx
+   95  which mpicxx
+   96  ls
+   97  locate RepastHPC_Demo_00
+   98  locate RepastHPC
+   99  scp
+  100  man scp
+  101  man scp /state/partition1/apps/RHPC_2.0/docs/API/repast_hpc/RepastHPC_2.0_API.pdf
+  102  scp /state/partition1/apps/RHPC_2.0/docs/API/repast_hpc/RepastHPC_2.0_API.pdf sergioandresmonsalvecastaneda@localhost 
+  103  scp /state/partition1/apps/RHPC_2.0/docs/API/repast_hpc/RepastHPC_2.0_API.pdf sergioandresmonsalvecastaneda@localhost:Desktop/
+  104  locate RepastHPC_Demo_00
+  105  ls
+  106  cd /share/apps/RHPC_2.0/
+  107  ls
+  108  tree
+  109  ls
+  110  cd docs/
+  111  ls
+  112  cd ../src/
+  113  ls
+  114  cd repast_hpc/
+  115  ls
+  116  cd ..
+  117  ls
+  118  cd ..
+  119  ls
+  120  wget http://repast.sourceforge.net/hpc_tutorial/SRC.tar.gz
+  121  ls
+  122  tar xvf SRC.tar.gz 
+  123  ls
+  124  cd SRC
+  125  ls
+  126  cdcd ..
+  127  cd ..
+  128  ls
+  129  mkdir Tutorial
+  130  mv SRC* Tutorial/
+  131  ls
+  132  cat INSTALL
+  133  cat INSTALL.txt~
+  134  diff
+  135  diff --help
+  136  less diff
+  137  less diff --help
+  138  less | diff --help
+  139  diff INSTALL.txt INSTALL.txt~
+  140  diff -q INSTALL.txt INSTALL.txt~
+  141  diff -y INSTALL.txt INSTALL.txt~
+  142  emacs INSTALL.txt~
+  143  ls
+  144  rm \#INSTALL.txt# INSTALL.txt~
+  145  rm \#INSTALL.txt# 
+  146  ls
+  147  rm INSTALL.txt~
+  148  ls
+  149  cd Tutorial/
+  150  ls
+  151  cd SRC
+  152  ls
+  153  tree
+  154  ls
+  155  cd RepastHPC/
+  156  ls
+  157  cd ../work/
+  158  ls
+  159  cat makefile 
+  160  ls
+  161  emacs env 
+  162  ls
+  163  emacs Demo_00.cpp
+  164  ls
+  165  which mpicxx
+  166  mpicxx -c -o Demo_00.o Demo_00.cpp 
+  167  mpicxx -o Demo_00.exe Demo_00.o
+  168  make compare_RepastHPC_Demo_00_Step_01
+  169  emacs Demo_00.cpp
+  170  make compare_RepastHPC_Demo_00_Step_01
+  171  make copy_RepastHPC_Demo_00_Step_01
+  172  ls
+  173  cat Demo_00.cpp
+  174  cat Demo_00.cpp~
+  175  lsls
+  176  ls
+  177  cd ..
+  178  ls
+  179  ls RepastHPC/
+  180  ls
+  181  ls work/
+  182  ls
+  183  cd work/
+  184  ls
+  185  /usr/bin/local/mpirun -n 4 Demo_00.exe
+  186  mpirun -n 4 Demo_00.exe
+  187  mpicxx -c -o Demo_00.o Demo_00.cpp 
+  188  mpicxx -o Demo_00.exe Demo_00.o
+  189  mpirun -n 4 Demo_00.exe
+  190  ls
+  191  cd /share/apps/RHPC_2.0/
+  192  ls
+  193  cd Tutorial/
+  194  ls
+  195  cd SRC
+  196  ls
+  197  cd work/
+  198  ls
+  199  cat ev
+  200  cat env 
+  201  locate breadth_first_search*
+  202  locate *breadth_first_search*
+  203  ls
+  204  cd /share/apps/
+  205  ls
+  206  cd RHPC_2.0/
+  207  cd Tutorial/SRC
+  208  cd work/
+  209  ls
+  210  cat makefile 
+  211  cat env 
+  212  emacs makefile 
+  213  locate boost
+  214  pushd /state/partition1/apps/RHPC_2.0/ext/Boost/Boost_1.54/include/
+  215  popd
+  216  locate boost
+  217  history
+  218  mpirun -n 4 Demo_00.exe
+  219  pwd
+  220  popd
+  221  history
+  222  cd /export/apps/
+  223  ls
+  224  cd RHPC_2.0/
+  225  ls
+  226  cd INSTALLATION/
+  227  ls
+  228  emacs install.sh
+  229  ./install.sh boost
+  230  make clean
+  231  rm -r /export/apps/RHPC_2.0/ext//Boost/
+  232  rm -rf /export/apps/RHPC_2.0/exta//Boost/
+  233  ls
+  234  ./install.sh boost
+  235  ls /export/apps/RHPC_2.0/exta//Boost/
+  236  make clean
+  237  ./install.sh boost
+  238  ls /share/apps/RHPC_2.0/ext/Boost/
+  239  rm -rf /share/apps/RHPC_2.0/ext/Boost/
+  240  ./install.sh boost
+  241  history
+  242  rm -rf /share/apps/RHPC_2.0/ext/Boost/
+  243  emacs install.sh
+  244  ./install.sh boost
+  245  emacs install.sh
+  246  rm -rf /share/apps/RHPC_2.0/ext/Boost/
+  247  ./install.sh boost
+  248  emacs install.sh
+  249  rm -rf /share/apps/RHPC_2.0/ext/Boost/
+  250  ./install.sh boost
+  251  emacs install.sh
+  252  rm -rf /share/apps/RHPC_2.0/ext/Boost/
+  253  ./install.sh boost
+  254  history
+  255  locate breadth_first_search.cpp
+  256  emacs /state/partition1/apps/RHPC_2.0/INSTALLATION/boost_1_54_0/libs/graph_parallel/example/breadth_first_search.cpp
+  257  mpirun
+  258  emacs nodes.txt
+  259  cat nodes.txt 
+  260  ls
+  261  cp nodes.txt /home/smonsalve/example
+  262  ls
+  263  ls
+  264  rm sergioandresmonsalvecastaneda\@localhost 
+  265  ls
+  266  locate breadth_first*
+  267  locate *breadth_first*
+  268  emacs /state/partition1/apps/RHPC_2.0/INSTALLATION/boost_1_54_0/libs/graph_parallel/example/breadth_first_search.cpp
+  269  cp -r /state/partition1/apps/RHPC_2.0/INSTALLATION/boost_1_54_0/libs/graph_parallel/example/breadth_first_search.cpp /export/home/smonsalve/
+  270  cp -r /state/partition1/apps/RHPC_2.0/INSTALLATION/boost_1_54_0/libs/graph_parallel/example/ /export/home/smonsalve/
+  271  chown -R smonsalve.smonsalve /home/smonsalve/example/
+  272  su - smonsalve
+  273  ssh compute-0-1
+  274  ls
+  275  ssh compute-0-0
+  276  history
+  277  history > /home/smonsalve/Desktop/historial.txt

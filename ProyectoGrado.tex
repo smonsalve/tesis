@@ -7,22 +7,23 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{wrapfig}
-
 \usepackage{parskip}
+\usepackage{nomencl}
 \setlength{\parindent}{15pt}
-
 \usepackage{hyperref}
 \hypersetup{
   colorlinks=true,
   linkcolor=black,          % color of internal links (change box color with linkbordercolor)
   citecolor=black,        % color of links to bibliography
   filecolor=black,      % color of file links
-  urlcolor=black           % color of external links
+  urlcolor=black           % color of external links }
 }
 
 \title{
-Proyecto de Grado\\[0.5cm]
-Instalación, Implementación y Uso de las librerías Boost y su aplicación en recorrido de grafos para la supercomputadora Apolo}
+	Proyecto de Grado\\[0.5cm]
+	Instalación, Implementación y Uso de las librerías Boost y su aplicación en recorrido de grafos para la supercomputadora Apolo
+}
+
 \vspace{1cm}
 
 \author{
@@ -38,25 +39,99 @@ Instalación, Implementación y Uso de las librerías Boost y su aplicación en 
 
 \date{
 	\today \\[0.5cm]
-	\includegraphics[width=0.25\textwidth]{aux/logo_eafit}
+	\includegraphics[width=0.25\textwidth]{aux/logo_eafit} 
 }
 
-
 \begin{document}
+
+% Primera Portada _____________________________________________________________________
+
 \maketitle
 
-\tableofcontents
+% Segunda Portada _____________________________________________________________________
+
+\thispagestyle{empty} % Esta pagina no se numera
+\begin{center}
+\textbf{{\Large Instalación, Implementación y Uso de las librerías Boost y su aplicación en recorrido de grafos para la supercomputadora Apolo}}\\[3cm]
+{\Large Sergio Andrés Monsalve Castañeda} \\ {\large \textit{smonsal3@eafit.edu.co}}\\[2.5cm]
+%{\large\emph{\textbf{Trabajo de grado presentado como requisito }}}\\
+%\emph{\textbf{parcial  para optar al t\'itulo de Ingeniero Físico}}}\\[3cm]
+
+{\large \textbf{Asesor:} \\ Doctor Juan Guillermo Lalinde Pulido}\\[3cm]
+
+Ingeniería de Sistemas \\ Departamento de Informática y Sistemas  \\ Escuela de Ingeniería \\ Universidad EAFIT \\ Medellín, Colombia.\\
+2013
+
+\end{center}
+\pagebreak
+
+%------------------------- Aceptación --------------------------------%
+
+\begin{flushright}
+	Nota de aceptación\\
+	\vspace{1cm}
+	\rule{\textwidth}{1pt}\\
+	\vspace{1cm}
+	\rule{\textwidth}{1pt}\\
+	\vspace{1cm}
+	\rule{\textwidth}{1pt}\\
+	\vspace{1.3cm}
+	Presidente del jurado\\
+	\vspace{1cm}
+	\rule{\textwidth}{1pt}\\
+	\vspace{1.3cm}
+	Jurado\\
+	\vspace{1cm}
+	\rule{\textwidth}{1pt}\\
+	\vspace{1.3cm}
+	Jurado\\
+	\vspace{1cm}
+	\rule{\textwidth}{1pt}\\
+	\vspace{2.5cm}
+	\rule{\textwidth}{1pt}\\
+	\vspace{.8cm}
+	Ciudad y Fecha
+\end{flushright}
+\thispagestyle{empty}
+\pagebreak
+
+
+%---------------------- Tabla de contenido ---------------------------%
+
+	\pdfbookmark[1]{\contentsname}{}
+	\tableofcontents
+	\cleardoublepage \phantomsection
+	%\newpage
+	\listoftables
+	\addcontentsline{toc}{section}{\protect\numberline{}\listtablename}
+	%\pdfbookmark[1]{Lista de tablas}{}
+	\cleardoublepage \phantomsection
+	%\newpage
+	%\listfigurename
+	\listoffigures
+	\addcontentsline{toc}{section}{\protect\numberline{}\listfigurename}
+	%\pdfbookmark[1]{Lista de figuras}{}
+	\cleardoublepage \phantomsection
+	%\newpage
+	% \printnomenclature[2cm] %% Imprime la nomenclatura
+	\addcontentsline{toc}{section}{\protect\numberline{}\nomname}
+	%\pdfbookmark[1]{Lista de abreviaturas y símbolos}{}
+
 
 
 \begin{abstract}
 
-Existe una gran cantidad de problemas que debido a su complejidad no es posible resolver, sea porque requieren mucho tiempo o la complejidad de estos esta tal que tardarían tanto tiempo que su estudio no es posible. Adicionalmente cada vez surgen nuevos problemas, aun mas complejos. Con el crecimiento de la capacidad computacional ya es posible abordar algunos de ellos que antes hubieran tomado mucho tiempo o simplemente no hubiese sido posible resolver. 
+	Existe una gran cantidad de problemas que debido a su complejidad no es posible resolver, sea porque requieren mucho tiempo o la complejidad de estos esta tal que los hace inviables, adicionalmente cada vez surgen nuevos problemas, aun mas complejos. 
 
-Dentro de este amplia gama de problemas, existen unos particulares que pueden ser modelados mediante la teoría de grafos, una gran herramienta que ofrece las ciencias de la computación.
+	Con el crecimiento de la capacidad computacional ya es posible abordar algunos de ellos que antes hubieran tomado mucho tiempo o simplemente no hubiese sido posible resolver. 
 
-Aunque los algoritmos para grafos tienen una complejidad alta en general, existen algoritmos paralelos. En este proyecto se pretende instalar en Apolo, el supercomputador de EAFIT, la infraestructura básica para que un programador, utilizando las librerías BOOST para C++, pueda desarrollar rápidamente aplicaciones que aprovechen su capacidad computacional. 
+	Dentro de este amplia gama de problemas, existen un subcojunto particular que pueden ser modelados mediante la teoría de grafos, una gran herramienta que ofrece las ciencias de la computación.
 
-De esta manera se pretende beneficiar a la Comunidad Científica, Comunidad académica, Estudiantes de Ingeniería de Sistemas, Estudiantes de Ingenieria Matematica y en General a quien necesite realizar computo de grafos en paralelo utilizando Boost, o requiera de una introducción a este tema.
+	Aunque los algoritmos para grafos tienen una complejidad alta en general, existen algoritmos paralelos.
+
+	En este proyecto se pretende instalar en Apolo, el supercomputador de EAFIT, la infraestructura básica para que un programador, utilizando las librerías BOOST para C++, pueda desarrollar rápidamente aplicaciones que aprovechen su capacidad computacional. 
+
+	De esta manera se pretende beneficiar a la Comunidad Científica, Comunidad académica, Estudiantes de Ingeniería de Sistemas, Estudiantes de Ingenieria Matematica y en General a quien necesite realizar computo en un ambiente de computación de alto rendimiento, clusters computacionales, grafos en paralelo utilizando Boost, o requiera de una introducción a este tema.
 
 
 \end{abstract}
@@ -66,168 +141,68 @@ De esta manera se pretende beneficiar a la Comunidad Científica, Comunidad acad
 \renewcommand{\abstractname}{Agradecimientos}
 \begin{abstract}
 
-En primer lugar quiero agradecer a Juan Guillermo Lalinde quien desde el inicio de me carrera me inspiro y apoyo en grandes retos acádemicos, sin su ayuda hoy sería un cocinero. A Juan David Pineda por toda su paciencia para explicarme el funcionamiento de Apolo. Por ultimo agradezco a John Jairo Silva, Alejandro Gómez, Mateo Gómez, Jaime Pérez y John Mario Gutiérrez por sus multiples colaboraciones. 
+	En primer lugar quiero agradecer a Juan Guillermo Lalinde quien desde el inicio de mi carrera me inspiró y apoyó en grandes retos acádemicos. A Juan David Pineda por toda su paciencia para explicarme el funcionamiento de Apolo. Por ultimo agradezco a John Jairo Silva, Alejandro Gómez, Mateo Gómez, Jaime Pérez y John Mario Gutiérrez por sus multiples colaboraciones. 	
 
 \end{abstract}
 
 \newpage
 
 \chapter{Introducción}
+\input{Caps/Intro}
 
-\section{Objetivos}
+\chapter{Marco de Referencia}\label{ChapRef}
+\input{Caps/Referencia}
 
-\begin{itemize}
-	\item Construir un manual para la instalación de las librerías de Boost.
-	\item Generar Documentación sobre el manejo de las librerías de Boost.
-	\item Crear códigos de ejemplo para la ejecución de las librerías de Boost.
-\end{itemize}
-
-
-
-\section{Alcance y productos}
-
-\begin{itemize}
-	\item Descripción de las Librerías de Boost.
-	\item Librerías de Utilización de Grafos Instaladas en Apolo.
-	\item Manual de Instalacion de librerias Para Boost.
-	\item Ejemplo en código documentado y manual de como hacer un programa utilizando Boost para grafos.
-	\item Introducción al manejo de Grafos con Boost (representación conceptual).
-
-\end{itemize}
-
-
-\section{Usabilidad}
-
-Utilizar los GPS de los taxis para hacer análisis de la malla vial de la ciudad. 
-Movilización y Rutas óptimas para el recorrido de Bomberos, Ambulancias, Policía para la atención de emergencias y desastres
-
-Movilidad, Seguridad, Educación, Tecnología.
-
-\chapter{Marco de Referencia}
-\label{ChapRef}
-
-\section{Computación Paralela}
-
-La computación paralela es el uso de multiples recursos computacionales para resolver un problema o una necesidad de computo en particular. La computación paralela surje como respuesta ante la necesidad de incrementar los recursos, sea en procesador, memoria y asi mejorar el tiempo de respuesta para problemas con alta complejidad computacional o alto volumen de analisis de datos. 
-
-El paradigma computacional tradicional ha sido de computación serial, donde una tarea es dividida en una serie finita de instrucciones que son ejecutada de forma secuencial, donde una sola instruccion es ejecutada en un momento dado. 
-
-La computación paralela rompe el paradigma anterior, buscando que en un momento dado se puedan ejecutar varias instrucciones, utilizando multiples procesadores y una entidad que orqueste los mismos.  
-
-\cite{PCI}
-\cite{SC}
-
-\subsection{Apolo}
-
-\section{C++}
-\subsection{Metaprogramación en C++}
-
-\section{MPI}
-
-
-\section{Boost}
-
-\begin{quotation}
-The Parallel Boost Graph Library is an extension to the Boost Graph Library (BGL) for parallel and distributed computing. It offers distributed graphs and graph algorithms to exploit coarse-grained parallelism along with parallel algorithms that exploit fine-grained parallelism, while retaining the same interfaces as the (sequential) BGL. Code written using the sequential BGL should be easy to parallelize with the parallel BGL. Visitors new to the Parallel BGL should read our architectural overview.\cite{wwwBoost} 
-\end{quotation} 
-
-\section{Grafos}
-\subsection{PBGL}
-
-
-\chapter{Instalación}
-
+\chapter{Virtualización}
 \input{Caps/virtualizacion}
 
-Imagen de apolo.
-Definir los nodos.
+\chapter{Instalación}
+\input{Caps/Instalacion}
 
-\section{MPI}
+\chapter{Ejecución}
+\input{Caps/Ejecucion}
 
-\subsection{OpenMPI}
-\subsection{Mpich}
-
-\section{Boost Graph Library}
-
-	build mpi
-	build GraphParallel
-	build serilization
-
-Boost and Eclipse
-	configuración
-	
-\subsection{Parallel Boost Graph Library (Parallel BGL) }
-\subsubsection{Seriallization}
-\subsubsection{Regex}
-\subsubsection{Parallel}
-\subsubsection{MPI}
-
-\subsection{Instalacion de Boost en Apolo}
-
-\subsection{makefile}
-
-Cómo ejecutar el script de installación 
-
-que se debe modificar en el makefile\cite{Wall2000}
-
-instalar rpm de Boost:
-Cuando se formatea o reinicia máquina
-Cuando se instala normalmente.
-
-
-\chapter{Implementación}
-
-Ejemplo Programa Corriendo en Apolo
-
-Programa Normal. 
-
-Ejecturar
-
-
-\chapter{Resultados}
-
-\section{Sin paralelizar}
-\section{10 Nodos}
-\section{100 Nodos}
+\chapter{Conclusiones}
+\input{Caps/Conclusiones}
 
 \chapter{Trabajo Futuro}
+\input{caps/Futuro}
 
 \chapter{Glosario}
-\label{chapGlosario}
+	\label{chapGlosario}
 
-\begin{description}
-	\item[HPC:] (High Performance Computing) Computación de alto desempeño.
-	\item[Data Center:]
-\end{description}
+	\begin{description}
+		\item[HPC:] (High Performance Computing) Computación de alto desempeño.
+		\item[Data Center:]
+	\end{description}
 
 \newpage
 
 \bibliography{Tesis}
 
 \bibliographystyle{plain}	
-aca
-\cite{czarnecki2000generative}
-\cite{wwwBoost}
-\cite{stroustrup2013c++}
-\cite{andrei2001modern}
-\cite{Wall2000}
-\cite{Boost}
-\cite{Karniadakis}
-\cite{Kernighan1988}
-
+	aca
+	\cite{czarnecki2000generative}
+	\cite{wwwBoost}
+	\cite{stroustrup2013c++}
+	\cite{andrei2001modern}
+	\cite{Wall2000}
+	\cite{Boost}
+	\cite{Karniadakis}
+	\cite{Kernighan1988}
 
 \newpage
 
 \appendix
+
 \chapter{Repositorio del código}
 
-Para una copia del código utilizado dirigirse a: \url{https://github.com/smonsalve/tesis.git}
+	Para una copia del código utilizado dirigirse a: \url{https://github.com/smonsalve/tesis.git}
 
-OVA de la maquina virtual con Rocks instalado y dos nodos.
+	OVA de la maquina virtual con Rocks instalado y dos nodos.
 
-Input data para Grafo (X Vertices y Y Aristas).
+	Input data para Grafo (X Vertices y Y Aristas).
 
-Makefile de Instalación.
+	Makefile de Instalación.
 
 \end{document}
-
