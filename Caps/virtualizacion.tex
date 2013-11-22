@@ -1,14 +1,9 @@
 \section{Virtualización de un cluster}
 
-\todo[inline,caption={TODO}]{
-Aca va la descripción de porque es importante virtualizar, para que se necesita y que es lo que se esta virtualizando. 
-}
 
-% http://galois.eafit.edu.co/vms/devenv/rocks-6.1/
+En este capitulo se presenta el procedimientos para la virtualización de un Ambiente de Pruebas que simula el funcionamiento de un centro de computación científica con el esquema de Apolo. 
 
-En este capitulo se presenta el procedimientos para la virtualización 
-
-
+Este proceso es importante para familizarse con el ambiente y los procedimientos en un ambiente seguro, con la posilidad de interacturar con los componentes de manera segura sin afectar de ninguna manera un centro de computo real. 
 
 La siguiente es la descripción de los pasos a seguir para la creación de un ambiente de pruebas paralelo virtualizado que simula el clúster de Apolo.\footnote{Estas instrucciones fueron probadas en un ambiente de Linux Fedora 18.}
 
@@ -40,19 +35,42 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 
 \item Una vez instalado VirtualBox en su computador, proceda a instalar el Extensión Pack: 
 
-	\includegraphics[width=0.5\textwidth]{aux/sinextensionpack}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{aux/sinextensionpack}
+		\caption{VirtualBox antes de instalar el ``Extension Pack''}
+		%(tomada de \cite{WikiEmotion)}
+		%\label{F-dimensions-emotion}
+	\end{figure}
+	
 	
 \begin{itemize}
 
 
-	\item En VirtualBox acceda al menú Archivo $\rightarrow$ Preferencias $\rightarrow$ Sección Extensiones $\rightarrow$ Proceda a instalar el ``Extension Pack''. 
+	\item En VirtualBox acceda al menú: Archivo $\rightarrow$ Preferencias $\rightarrow$ Sección Extensiones $\rightarrow$ Proceda a instalar el ``Extension Pack''. 
 	
-	\includegraphics[width=0.5\textwidth]{aux/conextensionpack}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{aux/conextensionpack}
+		\caption{Despues de Instalar el ``Extension Pack''}
+		%(tomada de \cite{WikiEmotion)}
+		%\label{F-dimensions-emotion}
+	\end{figure}
+	
 
-	\item Vaya a la sección Red $\rightarrow$ Adicione una red Sólo Anfitrión. Esta debe ser la primera interfaz de red de Sólo Anfitrión que se crea, si ya está creada por favor no cree otra adicional.
+	\item Vaya a la sección Red $\rightarrow$ Adicione una red Sólo Anfitrión. Asegúrese en caso de tener o crear otra red solo anfitrión que todos los nodos compartan esta red.
 
 
-	\includegraphics[width=0.5\textwidth]{aux/hostonly}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{aux/hostonly}
+		\caption{Red Sólo Anfitrion ``vboxnet0''}
+		%(tomada de \cite{WikiEmotion)}
+		%\label{F-dimensions-emotion}
+	\end{figure}
+	
 	
 
 	\item Haga clic en aceptar para finalizar la operación.
@@ -62,12 +80,33 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 \item En VirtualBox, importe desde el Menú $\rightarrow$ Importar Appliance. Deje la configuración por defecto y \textbf{no} reinicialice la dirección MAC.
 
 
-\includegraphics[width=0.5\textwidth]{aux/importappliance}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{aux/importappliance}
+	\caption{Importar Maquina Virtual}
+	%(tomada de \cite{WikiEmotion)}
+	%\label{F-dimensions-emotion}
+\end{figure}
 
 
-\includegraphics[width=0.5\textwidth]{aux/applianceops1}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{aux/applianceops1}
+	\caption{Opciones de configuración de la Maquina Virtual}
+	%(tomada de \cite{WikiEmotion)}
+	%\label{F-dimensions-emotion}
+\end{figure}
 
-\includegraphics[width=0.5\textwidth]{aux/applianceops2}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{aux/applianceops2}
+	\caption{Más opciones de configuración de la Maquina Virtual}
+	%(tomada de \cite{WikiEmotion)}
+	%\label{F-dimensions-emotion}
+\end{figure}
+
 
 
 \item Seleccione la máquina virtual llamada ``Master'' y vaya a la configuración y revise la siguiente configuración en esta:
@@ -78,19 +117,43 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 
 	
 	
-	\includegraphics[width=0.5\textwidth]{aux/procesadores}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{aux/procesadores}
+		\caption{Procesadores e Inicio por PAE/NX}
+		%(tomada de \cite{WikiEmotion)}
+		%\label{F-dimensions-emotion}
+	\end{figure}
+	
 	
 
 	\item En la sección Red, pestaña Adaptador 1, deberá estar configurado como NAT. 
 
 
-	\includegraphics[width=0.5\textwidth]{aux/rednat}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{aux/rednat}
+		\caption{Configuración Red Adaptador 1: NAT}
+		%(tomada de \cite{WikiEmotion)}
+		%\label{F-dimensions-emotion}
+	\end{figure}
+	
 	
 
-	\item En la pestaña Adaptador 2 deberá estar en Adaptador Sólo--Anfitrión y el nombre deberá ser \texttt{vboxnet0}\footnote{Tenga en cuenta que este adaptador se llama \texttt{vboxnet0} en Linux, en Windows tendrá otro nombre, lo más importante es que sea la primera interfaz de red de Sólo Anfitrión, ya que sino dará lugar al problema de reasignación de interfaces de red dentro del nodo Master, en otras palabras, asignará las interfaces eth2 y eth3 en vez de asignar eth0 y eth1 a la NAT y a la Sólo Anfitrión respectivamente.}.
+	\item En la pestaña Adaptador 2 deberá estar en Adaptador Sólo--Anfitrión y el nombre deberá ser \texttt{vboxnet0}\footnote{Tenga en cuenta que este adaptador se llama \texttt{vboxnet0} en Linux, en Windows tendrá otro nombre, lo más importante es que sea la misma interfaz de red de Sólo Anfitrión, ya que sino dará lugar al problema de reasignación de interfaces de red dentro del nodo Master, en otras palabras, asignará las interfaces eth2 y eth3 en vez de asignar eth0 y eth1 a la NAT y a la Sólo Anfitrión respectivamente.}.
 
 
-	\includegraphics[width=0.5\textwidth]{aux/redhost}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{aux/redhost}
+		\caption{Red Host Only (Sólo Anfitrión)}
+		%(tomada de \cite{WikiEmotion)}
+		%\label{F-dimensions-emotion}
+	\end{figure}
+	
 	
 
 	\item Acepte todos los cambios.
@@ -110,8 +173,15 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 
 	\item La versión será Red Hat de 64 bits.
 
-	\includegraphics[width=0.5\textwidth]{aux/opcnodo1}
-
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{aux/opcnodo1}
+		\caption{Opciones para el compute-0-0}
+		%(tomada de \cite{WikiEmotion)}
+		%\label{F-dimensions-emotion}
+	\end{figure}
+	
 	\item Clic en siguiente.
 
 	\item Asigne 1024 Megabytes de Memoria RAM\footnote{La cantidad de memoria RAM asignada será proporcional a la que tenga el sistema en el cual están las máquinas virtuales. Igual con el disco duro y los procesadores, sin embargo, para efectos de ver la paralelización en memoria compartida se recomienda tener 2 procesadores por máquina}.
@@ -120,17 +190,48 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 
 
 
-	\includegraphics[width=0.5\textwidth]{aux/nodohd}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{aux/nodohd}
+		\caption{Crear un Nuevo Disco Virtual (VHD)}
+		%(tomada de \cite{WikiEmotion)}
+		%\label{F-dimensions-emotion}
+	\end{figure}
+	
 
 	
-	\includegraphics[width=0.5\textwidth]{aux/nododvi}
-
-
-	\includegraphics[width=0.5\textwidth]{aux/hddinamico}
-
-
-	\includegraphics[width=0.5\textwidth]{aux/nodohdsize}
 	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{aux/nododvi}
+		\caption{Tipo de disco a crear}
+		%(tomada de \cite{WikiEmotion)}
+		%\label{F-dimensions-emotion}
+	\end{figure}
+	
+
+
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{aux/hddinamico}
+		\caption{Opciones para Disco Dinámico o Estático}
+		%(tomada de \cite{WikiEmotion)}
+		%\label{F-dimensions-emotion}
+	\end{figure}
+	
+
+
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{aux/nodohdsize}
+		\caption{Tamaño del Disco}
+		%(tomada de \cite{WikiEmotion)}
+		%\label{F-dimensions-emotion}
+	\end{figure}
+		
 
 \end{itemize}
 
@@ -145,19 +246,42 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 
 	\item habilite la red como dipositivo de \texttt{booteo} y además súbalo como primer dispositivo, sólo deberá quedar la tarjeta de red como primera opción y como segunda el disco duro de la máquina virtual, de esta manera nos aseguramos que esta máquina virtual pueda instalarse automáticamente de manera desatendida, por esta razón el clúster es escalable. 
 
-	\includegraphics[width=0.5\textwidth]{aux/nodoopsboot}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{aux/nodoopsboot}
+		\caption{Opciones del Nodo }
+		%(tomada de \cite{WikiEmotion)}
+		%\label{F-dimensions-emotion}
+	\end{figure}
+	
 
 
 	\item En la pestaña Procesador asegúrese de que hay dos procesadores y está habilitado PAE/NX.
 
 
-	\includegraphics[width=0.5\textwidth]{aux/nodoprocesadores}
-	
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{aux/nodoprocesadores}
+		\caption{Opciones Procesador para el Nodo}
+		%(tomada de \cite{WikiEmotion)}
+		%\label{F-dimensions-emotion}
+	\end{figure}
+		
 
 	\item En la sección Red deberá configurar sólo la primera interfaz de red y deberá estar configurada como Sólo--Anfitrión y deberá tener \texttt{vboxnet0}.
 
 
-	\includegraphics[width=0.5\textwidth]{aux/nodored}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{aux/nodored}
+		\caption{Opciones de Red del Nodo}
+		%(tomada de \cite{WikiEmotion)}
+		%\label{F-dimensions-emotion}
+	\end{figure}
+	
 	
 
 	\item Acepte los cambios.
@@ -171,26 +295,58 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 \item Abra una consola (La combinación de teclas Alt+F2 permite ejecutar una aplicación escribiendo su nombre)
 
 
-\includegraphics[width=0.5\textwidth]{aux/terminal}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{aux/terminal}
+	\caption{Abrir Terminal}
+	%(tomada de \cite{WikiEmotion)}
+	%\label{F-dimensions-emotion}
+\end{figure}
+
 
 
 \item Ingrese el comando \texttt{insert-ethers}
 
 
-\includegraphics[width=0.5\textwidth]{aux/insert}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{aux/insert}
+	\caption{Captura de los nodos por parte del Master}
+	%(tomada de \cite{WikiEmotion)}
+	%\label{F-dimensions-emotion}
+\end{figure}
+
 
 
 \item Escoja \texttt{Compute}. Aparecerá una interfaz de consola mostrándole los nodos agregados en la medida que se les vaya asignando IP por medio de DHCP y una imagen de Linux para instalar con PXE.
 
 
-\includegraphics[width=0.5\textwidth]{aux/compute}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{aux/compute}
+	\caption{inserción de los Nodos tipo ``Compute''}
+	%(tomada de \cite{WikiEmotion)}
+	%\label{F-dimensions-emotion}
+\end{figure}
+
 
 
 \item Encienda de uno en uno los Nodos trabajadores que haya creado, empezando por el \texttt{compute-0-0} y así sucesivamente. Observará que aparece en la interfaz \texttt{insert-ethers} la dirección MAC del Nodo Trabajador, se le asignará el nombre compute-0-0 y si aparece un símbolo de asterisco es porque recibió exitosamente la imagen para la instalación de Linux.
 
 
 
-\includegraphics[width=0.5\textwidth]{aux/nodosinsertados}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{aux/nodosinsertados}
+	\caption{Nodos ya reconocidos por el master}
+	%(tomada de \cite{WikiEmotion)}
+	%\label{F-dimensions-emotion}
+\end{figure}
+
 
 
 \item Una vez de que los nodos se termine de instalar automáticamente salga de la interfaz de \texttt{insert-ethers} en el Master con la tecla F8.
@@ -213,7 +369,7 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 	\item Una vez que se tiene el nodo Master funcionando y por lo menos un nodo trabajador como el \texttt{compute-0-0} se procede a realizar los siguientes pasos de configuración:
 
 	\begin{itemize}
-	\item Adicione un usuario sin privilegios con los siguientes comandos\footnote{En adelante el usuario de ejemplo será jdpinedac, pero usted podrá asignar el nombre de usuario que desee}:
+	\item Adicione un usuario sin privilegios con los siguientes comandos\footnote{En adelante el usuario de ejemplo será smonsalve, pero usted podrá asignar el nombre de usuario que desee}:
 
 	\begin{itemize}
 		\item \textbf{\texttt{adduser smonsalve}} Para crear un usuario sin privilegios.
@@ -230,7 +386,23 @@ La siguiente es la descripción de los pasos a seguir para la creación de un am
 
 \subsection{Apagar el Clúster}
 
-\todo[inline,caption={TODO}]{Importante}
+Cada vez que se vaya a apagar el ambiente de Pruebas es necesario realizarlo con el siguiente procedimiento para evitar dañar la configuración de los nodos. 
+
+\begin{itemize}
+	\item Desde una consola en el master ejecutar el siguiente comando que le indicara los respectivos nodos que se apaguen de manera adecuada. 
+
+	 \begin{verbatim}
+	$ rocks run host poweroff
+ 	\end{verbatim}
+
+ 	\item 
+  
+\end{itemize}
+
+
+
+
+
 
 
 \section{Preguntas Frecuentas:}[Posibles Problemas]

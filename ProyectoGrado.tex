@@ -95,18 +95,19 @@
 
 % Primera Portada _____________________________________________________________________
 
+\pagenumbering{Roman}
 \maketitle
 
 % Segunda Portada _____________________________________________________________________
 
 \thispagestyle{empty} % Esta pagina no se numera
 \begin{center}
-\textbf{{\Large Instalación, Implementación y Uso de las librerías Boost y su aplicación en recorrido de grafos para el centro de computación científica Apolo}}\\[3cm]
-{\Large Sergio Andrés Monsalve Castañeda} \\ {\large \textit{smonsal3@eafit.edu.co}}\\[2.5cm]
+\textbf{{\Large Instalación, Implementación y Uso de las librerías Boost y su aplicación en recorrido de grafos para el centro de computación científica Apolo}}\\[5cm]
+{\Large Sergio Andrés Monsalve Castañeda} \\ {\large \textit{smonsal3@eafit.edu.co}}\\[5cm]
 %{\large\emph{\textbf{Trabajo de grado presentado como requisito }}}\\
 %\emph{\textbf{parcial  para optar al t\'itulo de Ingeniero Físico}}}\\[3cm]
 
-{\large \textbf{Asesor:} \\Juan Guillermo Lalinde Pulido, Phd}\\[3cm]
+{\large \textbf{Asesor:} \\Juan Guillermo Lalinde Pulido, Phd}\\[5cm]
 
 Ingeniería de Sistemas \\ Departamento de Informática y Sistemas  \\ Escuela de Ingeniería \\ Universidad EAFIT \\ Medellín, Colombia.\\
 2013
@@ -149,40 +150,42 @@ Ingeniería de Sistemas \\ Departamento de Informática y Sistemas  \\ Escuela d
 
 	\pdfbookmark[1]{\contentsname}{}
 	\tableofcontents
-	%\cleardoublepage \phantomsection
+	%\cleardoublepage
+	\phantomsection
 	%\newpage
 	% \listoftables
-	% \addcontentsline{toc}{section}{\protect\numberline{}\listtablename}
+	 %\addcontentsline{toc}{section}{\protect\numberline{}\listtablename}
 	%\pdfbookmark[1]{Lista de tablas}{}
 	%\cleardoublepage \phantomsection
 	%\newpage
-	%\listfigurename
 	\listoffigures
-	\addcontentsline{toc}{section}{\protect\numberline{}\listfigurename}
+	\addcontentsline{toc}{chapter}{\listfigurename}
+
+
+
 	%\pdfbookmark[1]{Lista de figuras}{}
 	%\cleardoublepage \phantomsection
 	%\newpage
-	% \printnomenclature[2cm] %% Imprime la nomenclatura
+	%\printnomenclature%[2cm] %% Imprime la nomenclatura
 	%\addcontentsline{toc}{section}{\protect\numberline{}\nomname}
 	%\pdfbookmark[1]{Lista de abreviaturas y símbolos}{}
 
 
 
+
 \begin{abstract}
 
-	Dentro de los problemas que se estudian en las ciencias de la computación y sus aplicaciones, existe una gran cantidad de problemas que se han planteado para resolver. Dentro de este conjunto se encuentran los computables y los no computables. Adicionalmente cada vez surgen nuevos problemas, aun mas complejos, con mas interacciones y datos para analizar. 
+	Dentro de los problemas que se estudian en las ciencias de la computación y sus aplicaciones, existe una gran cantidad de problemas que se han planteado para resolver. Dentro de este conjunto se encuentran los computables y los no computables. 
 
-	Dentro de los problemas computables 
+	Adicionalmente cada vez surgen nuevos problemas, aun mas complejos, con mas interacciones y mas datos para analizar. 
 
-	\todo[inline,caption={TODO}]{pilas}
+	Dentro de los problemas computables existen algunos con una complejidad alta, donde de la solución de los mismos esta condicionada a mucho tiempo de computo o a incrementar los recursos computacionales.
 
-	 
-	 la complejidad de la solución a los mismos esta tal que los hace inviables, es decir, la solución de estos requiere tanto tiempo (cientos o miles de años de procesamiento) debido a su complejidad que ya no tiene sentido resolver.
+	 Con el crecimiento de la capacidad computacional y los algoritmos paralelos ya es posible abordar algunos de los problemas que antes hubieran tomado mucho tiempo o simplemente no hubiese sido posible resolver. 
 
-	
-	Con el crecimiento de la capacidad computacional ya es posible abordar algunos de ellos que antes hubieran tomado mucho tiempo o simplemente no hubiese sido posible resolver. 
+	Dentro de este amplia gama de problemas, existen un subconjunto particular que pueden ser modelados mediante la teoría de grafos, una  abstracción  que ofrece las ciencias de la computación para la solución de un conjunto determinado de problemas que cumplen con ciertas características. 
 
-	Dentro de este amplia gama de problemas, existen un subconjunto particular que pueden ser modelados mediante la teoría de grafos, una  abstracción  que ofrece las ciencias de la computación para la solución de un conjunto determinado de problemas que cumplen con ciertas características. Aunque los algoritmos para grafos tienen una complejidad alta en general, existen algoritmos paralelos.
+	Aunque los algoritmos para grafos tienen una complejidad alta en general, existen algoritmos paralelos.
 
 	En este proyecto se pretende introducir al amplio mundo de la computación de alto rendimiento, mediante	el procedimiento de instalación y ejecución en un ambiente de pruebas que pretende simular el funcionamiento del centro de computo científico ``Apolo'', el supercomputador de EAFIT. La configuración y uso de la ``infraestructura'' básica para que un programador, utilizando las librerías BOOST para C++, pueda desarrollar rápidamente aplicaciones que aprovechen su capacidad computacional. 
 
@@ -196,7 +199,7 @@ Ingeniería de Sistemas \\ Departamento de Informática y Sistemas  \\ Escuela d
 \renewcommand{\abstractname}{Agradecimientos}
 \begin{abstract}
 
-	Quiero agradecer a Juan Guillermo Lalinde quien desde el inicio de mi carrera me inspiró y apoyó en grandes retos académicos, por su paciencia y confianza a la hora de explicarme cada una de las múltiples dudas que surgían en el proceso.
+	Quiero agradecer al profesor Juan Guillermo Lalinde quien desde el inicio de mi carrera me inspiró y apoyó en grandes retos académicos, por su paciencia y confianza a la hora de explicarme cada una de las múltiples dudas que surgían en el proceso.
 
 	A Juan David Pineda por toda su paciencia para explicarme el funcionamiento de Apolo. 
 
@@ -204,20 +207,32 @@ Ingeniería de Sistemas \\ Departamento de Informática y Sistemas  \\ Escuela d
 
 	\todo[inline,caption={TODO}]{ Pendientes:
 	\begin{enumerate}
+		%\item Convertir a Figuras
+		%\item Mejorar Resumen
 		% \item Agradecimientos
-		\item Convertir a Figuras
-
-		\item Ejecución
-		\item Instalación
-
-		\item Conclusiones
-		\item Trabajo Futuro
-
 		\item Mejorar Introducción, Objetivos, alc, prod...
 		\item Marco de referencia
-		
+		\item Virtualización
+			\begin{itemize}
+				\item Apagar el clúster
+				\item Preguntas Frecuentes
+			\end{itemize}	
+		\item Instalación
+		\begin{itemize}
+			\item Archivo instalacion. tar. gz
+			\item instalacion htop
+		\end{itemize}
+		\item Ejecución
+		\begin{itemize}
+			\item source
+			\item input
+		\end{itemize}
+		\item Conclusiones
+		\item Trabajo Futuro
 		\item Completar Glosario
-		\item Bibliografía
+		\item Bibliografía (Poner referencias en todos lados)
+		\item Repositorio del Código
+		\item Corrección Ortográfica.	
 	\end{enumerate}
 	
 	}
@@ -225,6 +240,7 @@ Ingeniería de Sistemas \\ Departamento de Informática y Sistemas  \\ Escuela d
 \end{abstract}
 
 \newpage
+\pagenumbering{arabic}
 
 \chapter{Introducción}
 \input{Caps/Intro}

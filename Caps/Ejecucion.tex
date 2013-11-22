@@ -1,83 +1,117 @@
+Contando ya con el ambiente necesario para la ejecución del código a paralelizar se procede a realizar los siguientes pasos: 
 
-Ejemplo Programa Corriendo en Apolo
+\begin{enumerate}
 
-Programa Normal. 
+	\item Desde la maquina virtual del master abrir una consola. 
 
-Ejecturar
+	\item Se procede a loggearse como el usuario sin privilegios que se creo (smonsalve) a través de ssh:
 
+	\begin{verbatim}
+	$ ssh smonsalve@192.168.56.101
+	\end{verbatim}
 
-Ejecución
+	\item Procedemos a descargar el Código Fuente a ejecutar: 
 
-Contando ya con el ambiente necesario para la ejecucion del codigo a paralelizar se procede a realizar los siguientes pasos: 
+	\begin{verbatim}
+	$ wget goo.gl 
+	\end{verbatim}
+	
 
-
-desde la maquina virtual del master abrimos una consola. 
-
-nos loggeamos como el usuario sin privilegios a través de ssh
-
-smonsalve@192.168.56.101
-
-% mpirun -n 4 -machinefile nodes.txt breadth_first_search < weighted_graph.gr
-
-%weighted_graph-bfs.dot
+	%\lstinputlisting[label=nodes.txt,caption=Lista de Cores para Ejecutar]{code/breadth_first_search.cpp}
 
 
-nodes.txt
+	\item Para compilar este codigo es necesario:
 
 
-compute-0-0
-compute-0-0
-compute-0-1
-compute-0-1
+	\begin{verbatim}
+	$ mpi
+	\end{verbatim}
+	
+
+	\todo[inline,caption={TODO}]{source}
+
+	\item También se deben descargar los respectivos datos de entrada: 
+
+	\begin{verbatim}
+	$ wget goo.gl
+	\end{verbatim}
+	
+
+	%\lstinputlisting[label=nodes.txt,caption=Lista de Cores para Ejecutar]{code/weighted_graph.gr}
+	
+
+	\item Es también necesario contar con un archivo que le indique al proceso en que nodos y que cores se va ejecutar el archivo en nuestro caso, un archivo llamado nodos.txt:
+
+	\lstinputlisting[label=nodes.txt,caption=Lista de Cores para Ejecutar]{code/nodes.txt}
+
+	\item para ejecutar finalmente con MPI: 
 
 
+	\begin{verbatim}
+	$ mpirun -n 4 -machinefile nodes.txt \
+	> breadth_first_search < weighted_graph.gr
+	\end{verbatim}
+	
+	\item Debido a las relaciones de confianza entre el master y los nodos, desde el master podemos pasar por ssh a los nodos a través del siguiente comando: 
+
+	\begin{verbatim}
+	$ ssh compute-0-0
+	\end{verbatim}
 
 
-Codigo Fuente
+	\item Desde allí se podrá monitorear la actividad del master y los nodos, para lo cual se puede utilizar el programa ``htop'', el cual se encarga de mostrar los procesos, las CPUs y los cores disponibles dentro del nodo. 
 
-Datos de Entrada
-
-Salida ( a donde? )
-
-Archivo de Errores
-
-Torque  ( Nodos  )
-
-PBS
+	\item  Desde cada uno de los nodos se abre ``htop'' para monitorear que se esté procesando en todos los nodos y en cada core de los cores, en este caso, dos nodos con dos cores cada uno:   
 
 
+	\begin{verbatim}
+	$ htop
+	\end{verbatim}
+
+	\begin{verbatim}
+	$ ssh compute-0-1
+	\end{verbatim}
+
+	\begin{verbatim}
+	$ htop
+	\end{verbatim}
+
+	\todo[inline,caption={TODO}]{imagen htop}
+
+	% \begin{figure}[H]
+	% 	\centering
+	% 	\includegraphics[width=0.5\textwidth]{aux/}
+	% 	\caption[]{}
+	% 	%(tomada de \cite{WikiEmotion)}
+	% 	%\label{F-dimensions-emotion}
+	% \end{figure}
 
 
-Instalacion de Boost
+	\item Para volver al Master se escribe el comando ``exit''
 
 
+	\begin{verbatim}
+	$ exit
+	\end{verbatim}
+
+	\item Donde se podrán ver los datos de Salida en el mismo directorio donde se ejecuto el programa desde el master. Si  se verifica el contenido del directorio debe aparecer el archivo de salida generado, con el nombre: ``weighted\_graph-bfs.dot''
+
+	 \begin{verbatim}
+	 (master)$ ls 
+	 \end{verbatim}
 
 
-rocks run host rmpb -ivh /export/apps/installers/*.rpm
+	 % \begin{figure}[H]
+	 % 	\centering
+	 % 	\includegraphics[width=0.5\textwidth]{aux/}
+	 % 	\caption[]{}
+	 % 	%(tomada de \cite{WikiEmotion)}
+	 % 	%\label{F-dimensions-emotion}
+	 % \end{figure}
+	 
+
+	\item De esta manera se puede observar que el programa ``bfs'' se ejecuto de la manera deseada, produciendo como resultado el respectivo archivo de salida, resultado de un proceso paralelizado.
 
 
-Agregar usuario sin privilegios. 
-
-adduser smonsalve
-passwd smonsalve
-rocks sync users
-
-
-insert-ethers --remove compute-0-0
-insert-ethers --remove compute-0-1
-insert-ethers 
-
-rocks run host hostname
-rocks run host poweroff
-
-
-
-Debido a las relaciones de confianza entre el master y los nodo
-
-
-ssh compute-0-0
-ssh compute-0-1
-
-
-Para monitorear la actividad del master y los nodos podemos utiliar el programa htop, el cual se encarga de mostrarnos los procesos, las cpus y los cores disponibles dentro del nodo. 
+\end{enumerate}
  
