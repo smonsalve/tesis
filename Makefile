@@ -6,7 +6,7 @@ ALL: ProyectoGrado.pdf clean open
 	pdflatex $< 
 	
 clean:
-	  rm -f *.aux	*.bbl	*.blg	*.log	*.out	*.toc
+	  rm -f *.aux	*.bbl	*.blg	*.log	*.out	*.toc	*.lof	*.lot
 
 open:
 	open ProyectoGrado.pdf
