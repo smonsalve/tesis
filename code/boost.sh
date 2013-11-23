@@ -4,8 +4,7 @@ cd ..
 BASE_DIR=$PWD/ext/
 cd INSTALLATION
 
-#MPI_COMPILER_INVOCATION=$BASE_DIR/MPICH/bin/mpicxx
-MPI_COMPILER_INVOCATION=/opt/openmpi/bin/mpicxx
+MPI_COMPILER_INVOCATION=$BASE_DIR/MPICH/bin/mpicxx
 
 
 if [[ $1 == *boost* ]]

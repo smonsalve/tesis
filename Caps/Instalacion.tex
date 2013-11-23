@@ -1,6 +1,4 @@
-Este procedimiento de instalación esta basado en la instalación de Repast HPC del cual podran ver mas en el
-
-\todo[inline,caption={TODO}]{referencia de repast}
+Este procedimiento de instalación esta basado en la instalación de Repast HPC\cite{repast} que hace uso de Boost y MPI.
 
 Para el proceso de instalación del software necesario, estando en el nodo maestro con el usario root procedemos a realizar las siguientes instrucciones: 
 
@@ -21,7 +19,7 @@ En este archivo se encuentran los siguientes archivos:
 \begin{itemize}
 	\item Boost 1.54
 	\item mpich 
-	\item Archivo de instalación
+	\item Archivos de instalación
 \end{itemize}
 
 \newpage
@@ -70,7 +68,7 @@ $ cd /INSTALLATION
 y procedemos a ejecutar el script de instalación con boost como argumento de la siguiente manera:
 
 \begin{verbatim}
-$ ./install.sh mpich
+$ ./install.sh boost
 \end{verbatim}
 
 el cual ejecutara la siguiente secuencia de instrucciónes: 
@@ -87,32 +85,10 @@ el cual ejecutara la siguiente secuencia de instrucciónes:
 	\item corre el script de compilación propio de boost 
 \end{itemize}
 	
-\todo[inline,caption={TODO}]{Ambiente de Nota: la libreria que hace uso de Grafos en paralelo necesita de otras como : 
-\begin{itemize}
-	\item serialization 
-	\item mpi 
-	\item graph 
-	\item graph parallel 
-	\item regex 
-\end{itemize}
-}
-
-
-
+\footnote{La libreria que hace uso de Grafos en paralelo necesita de las siguientes librerias compiladas:  serialization, mpi, graph, graph parallel, regex. }
 
 \newpage
 \lstinputlisting[label=Installing Boost,caption=Script de Instalación de Boost]{code/boost.sh}
 
-
-\todo[inline,caption={TODO}]{	
-}	
-
-
-\begin{verbatim}
-$ wget htop.rpm
-\end{verbatim}
-
-
-\begin{verbatim}
-$ rocks run host rpm -ivh /export/apps/installers/*.rpm
-\end{verbatim}
+De esta manera se completa el proceso de instalación. 
+       
