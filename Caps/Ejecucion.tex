@@ -10,17 +10,17 @@ Contando ya con el ambiente necesario para la ejecución del código a paraleliz
 	$ ssh smonsalve@192.168.56.101
 	\end{verbatim}
 
-	\item Procedemos a descargar el Código Fuente a ejecutar: 
+	\item Descargar el Código Fuente a ejecutar: 
 
 	\begin{verbatim}
 	$ wget goo.gl 
 	\end{verbatim}
 	
 
-	%\lstinputlisting[label=nodes.txt,caption=Lista de Cores para Ejecutar]{code/breadth_first_search.cpp}
+	\lstinputlisting[label=bfs.cpp,caption=Busqueda por amplitud]{code/breadth_first_search.cpp}
 
 
-	\item Para compilar este codigo es necesario:
+	\item Para compilar este código es necesario:
 
 
 	\begin{verbatim}
@@ -37,7 +37,7 @@ Contando ya con el ambiente necesario para la ejecución del código a paraleliz
 	\end{verbatim}
 	
 
-	%\lstinputlisting[label=nodes.txt,caption=Lista de Cores para Ejecutar]{code/weighted_graph.gr}
+	\lstinputlisting[label=nodes.txt,caption=Lista de Cores para Ejecutar]{code/weighted_graph.gr}
 	
 
 	\item Es también necesario contar con un archivo que le indique al proceso en que nodos y que cores se va ejecutar el archivo en nuestro caso, un archivo llamado nodos.txt:
@@ -100,6 +100,7 @@ Contando ya con el ambiente necesario para la ejecución del código a paraleliz
 	 (master)$ ls 
 	 \end{verbatim}
 
+	 \lstinputlisting[label=wg-bfs.dot,caption=Salida Generada por el programa]{code/weighted_graph-bfs.dot}
 
 	 % \begin{figure}[H]
 	 % 	\centering
@@ -110,7 +111,7 @@ Contando ya con el ambiente necesario para la ejecución del código a paraleliz
 	 % \end{figure}
 	 
 
-	\item De esta manera se puede observar que el programa ``bfs'' se ejecuto de la manera deseada, produciendo como resultado el respectivo archivo de salida, resultado de un proceso paralelizado.
+	\item De esta manera se puede observar que el programa ``weighted\_graph'' se ejecuto de la manera deseada, produciendo como resultado el respectivo archivo de salida, resultado de un proceso paralelizado.
 
 
 \end{enumerate}

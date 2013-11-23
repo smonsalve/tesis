@@ -1,0 +1,40 @@
+
+\section{Cómo Usar el Sistema de Colas}
+    \subsection{Trabajos secuenciales}
+    \subsubsection{Ejemplo de Archivo de Torque para trabajo secuencial}
+    \begin{verbatim}
+    #!/bin/bash
+    #PBS -N NombreTrabajo
+    #PBS -l nodes=1
+    #PBS -l walltime=00:10:00
+    #PBS -q standby
+    #PBS -M correo@dominio
+    #PBS -m abe
+
+    cd $PBS_O_WORKDIR
+
+    ./unejecutable
+    \end{verbatim}
+
+    \subsection{Trabajos en paralelo y distribuidos}
+    \subsubsection{Ejemplo de Archivo de Torque para trabajo paralelo o distribuido}
+    \begin{verbatim}
+    #!/bin/bash
+    #PBS -N NombreTrabajo
+    #PBS -l nodes=1:ppn=8
+    #PBS -l walltime=36:00:00
+    #PBS -q longjobs
+    #PBS -M correo@dominio
+    #PBS -m abe
+
+    cd $PBS_O_WORKDIR
+
+    nprocs=`cat $PBS_NODEFILE | wc -l`
+
+    mpirun -np $nprocs -machinefile $PBS_NODEFILE ejecutableMPI
+    \end{verbatim}
+\section{Cómo Verificar que mi simulación esté funcionando bien}
+\section{Torque}
+\section{Errores}
+\section{Resultados}
+

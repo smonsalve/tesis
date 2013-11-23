@@ -1,6 +1,7 @@
 \documentclass[twoside,letterpaper,12pt]{report}
 \usepackage[spanish,backgroundcolor=green,textsize=small]{todonotes}
-\usepackage[margin=2cm]{geometry}
+%\usepackage[margin=2cm]{geometry}
+\usepackage[top=3cm,bottom=3cm,left=3cm,right=3cm]{geometry} 
 \usepackage[utf8x]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{plain}
@@ -10,7 +11,7 @@
 \usepackage{parskip}
 \usepackage{float}
 
-\setlength{\parindent}{15pt}
+%\setlength{\parindent}{15pt}
 \usepackage{hyperref}
 \hypersetup{
   colorlinks=true,
@@ -20,14 +21,16 @@
   urlcolor=black           % color of external links }
 }
 
+\renewcommand{\baselinestretch}{1.4} 
 \renewcommand{\listfigurename}{Lista de Imágenes}
 \renewcommand{\figurename}{Imagen}
+\renewcommand{\baselinestretch}{1.4} 
 
 \usepackage{listings}
   \usepackage{courier}
  \lstset{
          basicstyle=\footnotesize\ttfamily, % Standardschrift
-         %numbers=left,               % Ort der Zeilennummern
+         numbers=left,               % Ort der Zeilennummern
          numberstyle=\tiny,          % Stil der Zeilennummern
          %stepnumber=2,               % Abstand zwischen den Zeilennummern
          numbersep=5pt,              % Abstand der Nummern zum Text
@@ -54,8 +57,8 @@
          %[Visual]Basic
          %Pascal
          %C
-         sh
-         %C++
+         sh,
+         C++
          %XML
          %HTML
          %Java
@@ -63,13 +66,13 @@
     %\DeclareCaptionFont{blue}{\color{blue}} 
 
   %\captionsetup[lstlisting]{singlelinecheck=false, labelfont={blue}, textfont={blue}}
-  \usepackage{caption}
-\DeclareCaptionFont{white}{\color{white}}
-\DeclareCaptionFormat{listing}{\colorbox[cmyk]{0.43, 0.35, 0.35,0.01}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
-\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
+%   \usepackage{caption}
+% \DeclareCaptionFont{white}{\color{white}}
+% \DeclareCaptionFormat{listing}{\colorbox[cmyk]{0.43, 0.35, 0.35,0.01}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
+% \captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
 
 \title{
-	Proyecto de Grado\\[0.5cm]
+	Proyecto de Grado\\[0.4cm]
 	Instalación, Implementación y Uso de las librerías Boost y su aplicación en el recorrido de grafos para el centro de computación científica Apolo
 }
 
@@ -79,7 +82,7 @@
 	Autor:\\[0.3cm]
 	Sergio Andrés Monsalve--Castañeda\\
 	Código: 200410061010\\
-	smonsal3@eafit.edu.co\\[0.7cm]
+	smonsal3@eafit.edu.co\\[0.5cm]
 	Asesor: \\[0.3cm]
 	Juan Guillermo Lalinde--Pulido, Ph.D\\
 	jlalinde@eafit.edu.co\\
@@ -87,8 +90,8 @@
 }
 
 \date{
-	\today \\[0.5cm]
-	\includegraphics[width=0.25\textwidth]{aux/logo_eafit} 
+	\today \\[0.6cm]
+	\includegraphics[width=0.23\textwidth]{aux/logo_eafit} 
 }
 
 \begin{document}
@@ -96,8 +99,9 @@
 % Primera Portada _____________________________________________________________________
 
 \pagenumbering{Roman}
+\thispagestyle{empty}
 \maketitle
-
+\thispagestyle{empty}
 % Segunda Portada _____________________________________________________________________
 
 \thispagestyle{empty} % Esta pagina no se numera
@@ -107,7 +111,7 @@
 %{\large\emph{\textbf{Trabajo de grado presentado como requisito }}}\\
 %\emph{\textbf{parcial  para optar al t\'itulo de Ingeniero Físico}}}\\[3cm]
 
-{\large \textbf{Asesor:} \\Juan Guillermo Lalind--Pulido, Ph.D}\\[5cm]
+{\large \textbf{Asesor:} \\Juan Guillermo Lalind--Pulido, Ph.D}\\[4cm]
 
 Ingeniería de Sistemas \\ Departamento de Informática y Sistemas  \\ Escuela de Ingeniería \\ Universidad EAFIT \\ Medellín, Colombia.\\
 2013
@@ -175,8 +179,9 @@ Ingeniería de Sistemas \\ Departamento de Informática y Sistemas  \\ Escuela d
 
 \begin{abstract}
 
-	
+Este trabajo de grado tiene como objetivo consolidar  del conocimiento del Ingeniero de sistemas a traves de un proyecto que requiera el uso de diferentes areas de su conocimiento tales como; Telematica, Organización de Computadores, Arquitectura de Computadores, Estructuras de datos y algoritmos, Lenguajes de Programación entre otras, de esta manera que sirva de referencia para quienes esten interesados en el tema.
 
+Este proyecto se compone de el Procedimiento de creación de un ambiente de pruebas que simule un cluster de computo cientifico para la computación en paralelo, una guia para la instalación de las librerias de Boost y las Instrucciónes para el uso y la ejecución de programas que hagan uso de las liberias Paralelas para Grafos de Boost.
 
 \end{abstract}
 
@@ -250,6 +255,35 @@ Ingeniería de Sistemas \\ Departamento de Informática y Sistemas  \\ Escuela d
 
 \chapter{Glosario} \label{chapGlosario}
 \input{caps/Glosario}
+
+\cleardoublepage \phantomsection
+\section*{Aspectos legales}
+\addcontentsline{toc}{section}{\protect\numberline{}Aspectos legales}
+
+
+\textbf{Boost Software License\cite{BoostLicese} - Versión 1.0 - 17 de agosto 2003}
+
+Se concede permiso, de forma gratuita, a cualquier persona u organización
+la obtención de una copia del software y la documentación adjunta cubierta por
+esta licencia (el "Software") para usar, reproducir, exhibir, distribuir,
+ejecutar y transmitir el Software, y para preparar trabajos derivados de la
+Software, y para permitir a terceras partes a las que el Software se suministra a
+hacerlo, todo ello sujeto a lo siguiente:
+
+Los avisos de copyright en el Software y toda esta declaración, incluyendo
+la concesión de licencia más arriba, esta restricción y el siguiente descargo de responsabilidad,
+debe incluirse en todas las copias del Software, en todo o en parte, y
+todos los trabajos derivados del Software, a menos que tales copias o derivado
+obras son únicamente en forma de código objeto ejecutable por máquina que genera
+un procesador de lenguaje fuente.
+
+EL SOFTWARE SE PROPORCIONA " TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO, EXPRESA O
+IMPLÍCITA, INCLUYENDO PERO NO LIMITADO A LAS GARANTÍAS DE COMERCIALIZACIÓN,
+IDONEIDAD PARA UN PROPÓSITO PARTICULAR, TÍTULO Y NO INFRACCIÓN. EN NINGÚN CASO
+LOS PROPIETARIOS DEL COPYRIGHT O CUALQUIER PERSONA DISTRIBUIR EL SOFTWARE SE HACE RESPONSABLE
+POR CUALQUIER DAÑO O CUALQUIER OTRA RESPONSABILIDAD, YA SEA POR CONTRATO, AGRAVIO O DE OTRA MANERA,
+SURJA DE O EN CONEXION CON EL SOFTWARE O EL USO U OTRO
+OPERACIONES EN EL SOFTWARE.
 
 
 \newpage
