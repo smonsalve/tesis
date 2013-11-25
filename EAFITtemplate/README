@@ -1,5 +1,0 @@
-Just type 'make'
-'make clean' is valid too
-'make commit' to commit to the local repository
-'make pull' to bring (download) changes made to the central repository and creates a ssh tunnel to do this.
-'make push' to upload our changes to the central repository. Creates a ssh tunnel to to do this. 

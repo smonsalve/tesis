@@ -5,14 +5,14 @@ DIR_BACKUP=./BackupsProyectos/
 
 #Presentation's name
 #PRESENTATION=$(eval $(`ls | grep *.tex | cut -d "." -f1`))
-PRESENTATION=apolobasics
+PRESENTATION=sustentacion
 ARTICLE=$(PRESENTATION)article
 
 # Parts Directory
 PARTSDIR=./partes/
 
 all: $(PRESENTATION).pdf 
-	evince $(PRESENTATION).pdf&
+	open $(PRESENTATION).pdf&
 
 $(PRESENTATION).pdf: $(PRESENTATION).tex
 	pdflatex $(PRESENTATION).tex
@@ -27,3 +27,4 @@ backup:
 
 clean:
 	-find . -iname \*~ -delete -or -iname \*.out -delete -or -iname \*.dvi -delete -or -iname \*.aux -delete -or -iname \*.log -delete -or -iname \*.toc -delete -or -iname \*.pdf -delete -or -iname \*.nav -delete -or -iname \*.snm -delete -or -iname \*.bbl -delete -or -iname \*.blg -delete -or -iname \*.vrb -delete
+	rm -f *.aux	*.bbl	*.blg	*.log	*.out	*.toc	*.lof	*.lot	*.nav	*.snm
